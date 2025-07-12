@@ -23,7 +23,7 @@ export const IndusaLogo: React.FC<IndusaLogoProps> = ({
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full"
       >
-        {/* Gen Z Gradient Definitions */}
+        {/* Ultra Gen Z Gradient Definitions */}
         <defs>
           <linearGradient
             id="genZMainGradient"
@@ -32,80 +32,164 @@ export const IndusaLogo: React.FC<IndusaLogoProps> = ({
             x2="100%"
             y2="100%"
           >
-            <stop offset="0%" stopColor="#FF0080" />
-            <stop offset="25%" stopColor="#FF3300" />
-            <stop offset="50%" stopColor="#FFFF00" />
-            <stop offset="75%" stopColor="#00FFFF" />
-            <stop offset="100%" stopColor="#8000FF" />
+            <stop offset="0%" stopColor="#FF006E" />
+            <stop offset="20%" stopColor="#FF4081" />
+            <stop offset="40%" stopColor="#7C4DFF" />
+            <stop offset="60%" stopColor="#00BCD4" />
+            <stop offset="80%" stopColor="#4CAF50" />
+            <stop offset="100%" stopColor="#FFC107" />
           </linearGradient>
           <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FF00FF" />
-            <stop offset="50%" stopColor="#00FFFF" />
-            <stop offset="100%" stopColor="#FFFF00" />
+            <stop offset="0%" stopColor="#E91E63" />
+            <stop offset="33%" stopColor="#9C27B0" />
+            <stop offset="66%" stopColor="#3F51B5" />
+            <stop offset="100%" stopColor="#00BCD4" />
           </linearGradient>
-          <radialGradient id="holographicGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#FF00FF" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#00FFFF" stopOpacity="0.2" />
+          <radialGradient id="holographicGlow" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
+            <stop offset="30%" stopColor="#FF4081" stopOpacity="0.6" />
+            <stop offset="70%" stopColor="#7C4DFF" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#00BCD4" stopOpacity="0.2" />
           </radialGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
             <feMerge>
               <feMergeNode in="coloredBlur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+          <filter id="heavyGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="4" result="heavyBlur" />
+            <feMerge>
+              <feMergeNode in="heavyBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
 
-        {/* Modern Geometric Base */}
-        <rect
-          x="6"
-          y="6"
-          width="20"
-          height="20"
-          rx="10"
-          fill="url(#genZMainGradient)"
-          transform="rotate(45 16 16)"
-        />
-
-        {/* Neon Ring */}
+        {/* Layered Geometric Base */}
         <circle
           cx="16"
           cy="16"
-          r="12"
-          fill="none"
-          stroke="url(#neonGlow)"
-          strokeWidth="2"
+          r="14"
+          fill="url(#genZMainGradient)"
+          filter="url(#heavyGlow)"
+        />
+
+        {/* Secondary shape */}
+        <polygon
+          points="16,4 24,12 16,20 8,12"
+          fill="url(#neonGlow)"
           opacity="0.8"
           filter="url(#glow)"
         />
 
-        {/* Bold I Symbol */}
-        <rect
-          x="14"
-          y="8"
-          width="4"
-          height="16"
-          rx="2"
-          fill="#FFFFFF"
+        {/* Triple Neon Rings */}
+        <circle
+          cx="16"
+          cy="16"
+          r="13"
+          fill="none"
+          stroke="#FF4081"
+          strokeWidth="1.5"
+          opacity="0.7"
+          filter="url(#glow)"
+        />
+        <circle
+          cx="16"
+          cy="16"
+          r="10"
+          fill="none"
+          stroke="#7C4DFF"
+          strokeWidth="1"
+          opacity="0.8"
+          filter="url(#glow)"
+        />
+        <circle
+          cx="16"
+          cy="16"
+          r="7"
+          fill="none"
+          stroke="#00BCD4"
+          strokeWidth="0.8"
+          opacity="0.9"
           filter="url(#glow)"
         />
 
-        {/* Top and Bottom bars for I */}
-        <rect x="11" y="8" width="10" height="3" rx="1.5" fill="#FFFFFF" />
-        <rect x="11" y="21" width="10" height="3" rx="1.5" fill="#FFFFFF" />
+        {/* Bold Stylized "i" */}
+        <circle
+          cx="16"
+          cy="10"
+          r="2.5"
+          fill="#FFFFFF"
+          filter="url(#heavyGlow)"
+        />
+        <rect
+          x="14"
+          y="14"
+          width="4"
+          height="10"
+          rx="2"
+          fill="#FFFFFF"
+          filter="url(#heavyGlow)"
+        />
 
-        {/* Holographic Glow Effect */}
-        <circle cx="16" cy="16" r="14" fill="url(#holographicGlow)" />
+        {/* Holographic Overlay */}
+        <circle cx="16" cy="16" r="15" fill="url(#holographicGlow)" />
 
-        {/* Trendy Sparkles */}
-        <circle cx="8" cy="8" r="1.5" fill="#FFFF00" opacity="0.9" />
-        <circle cx="24" cy="8" r="1" fill="#FF00FF" opacity="0.8" />
-        <circle cx="8" cy="24" r="1" fill="#00FFFF" opacity="0.8" />
-        <circle cx="24" cy="24" r="1.5" fill="#FF0080" opacity="0.9" />
+        {/* Gen Z Sparkle Elements */}
+        <circle
+          cx="6"
+          cy="6"
+          r="1.5"
+          fill="#E91E63"
+          opacity="0.9"
+          filter="url(#glow)"
+        />
+        <circle
+          cx="26"
+          cy="6"
+          r="1.2"
+          fill="#9C27B0"
+          opacity="0.8"
+          filter="url(#glow)"
+        />
+        <circle
+          cx="6"
+          cy="26"
+          r="1.2"
+          fill="#3F51B5"
+          opacity="0.8"
+          filter="url(#glow)"
+        />
+        <circle
+          cx="26"
+          cy="26"
+          r="1.5"
+          fill="#00BCD4"
+          opacity="0.9"
+          filter="url(#glow)"
+        />
 
-        {/* Modern Accent Diamond */}
-        <path d="M16 4 L20 8 L16 12 L12 8 Z" fill="#FFFFFF" opacity="0.9" />
+        {/* Additional micro sparkles */}
+        <circle cx="10" cy="4" r="0.8" fill="#FFC107" opacity="0.7" />
+        <circle cx="22" cy="4" r="0.6" fill="#4CAF50" opacity="0.6" />
+        <circle cx="4" cy="16" r="0.7" fill="#FF4081" opacity="0.8" />
+        <circle cx="28" cy="16" r="0.9" fill="#7C4DFF" opacity="0.7" />
+
+        {/* Trendy geometric accents */}
+        <path
+          d="M16 2 L18 4 L16 6 L14 4 Z"
+          fill="#FFFFFF"
+          opacity="0.9"
+          filter="url(#glow)"
+        />
+        <path
+          d="M16 26 L18 28 L16 30 L14 28 Z"
+          fill="#FFFFFF"
+          opacity="0.9"
+          filter="url(#glow)"
+        />
       </svg>
     </div>
   );
