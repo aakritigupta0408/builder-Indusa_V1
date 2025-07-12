@@ -12,6 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Heart, Star, Filter, X, ShoppingBag } from "lucide-react";
 import { allProducts, searchProducts } from "@/data/products";
+import { getSubcategoriesByCategory } from "@/data/subcategories";
 import { useApp, useAppActions } from "@/context/AppContext";
 
 const categories = ["all", "clothing", "decor"];
