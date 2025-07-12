@@ -382,13 +382,15 @@ export default function Index() {
               Our AI technology analyzes your body shape and suggests the
               perfect size for any garment, reducing returns by up to 60%.
             </p>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="bg-white text-primary hover:bg-white/90"
-            >
-              Try AI Sizing
-            </Button>
+            <Link to="/ai-sizing">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="bg-white text-primary hover:bg-white/90"
+              >
+                Try AI Sizing
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
