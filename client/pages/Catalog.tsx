@@ -31,6 +31,7 @@ export default function Catalog() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedSubcategory, setSelectedSubcategory] = useState("all");
   const [selectedColor, setSelectedColor] = useState("all");
   const [selectedMaterial, setSelectedMaterial] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
@@ -38,13 +39,17 @@ export default function Catalog() {
   // Get search query from URL
   const searchQuery = searchParams.get("search") || "";
   const categoryFromUrl = searchParams.get("category") || "";
+  const subcategoryFromUrl = searchParams.get("subcategory") || "";
 
   // Initialize filters from URL params
   useEffect(() => {
     if (categoryFromUrl && categoryFromUrl !== selectedCategory) {
       setSelectedCategory(categoryFromUrl);
     }
-  }, [categoryFromUrl]);
+    if (subcategoryFromUrl && subcategoryFromUrl !== selectedSubcategory) {
+      setSelectedSubcategory(subcategoryFromUrl);
+    }
+  }, [categoryFromUrl, subcategoryFromUrl]);
 
   // Handle search results
   useEffect(() => {
