@@ -136,22 +136,6 @@ export default function Index() {
                     </Button>
                   </Link>
                 </div>
-
-                {/* Trust indicators */}
-                <div className="flex items-center gap-8 pt-8 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span>99% Accuracy</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span>Instant Results</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span>1M+ Users</span>
-                  </div>
-                </div>
               </div>
 
               {/* Visual Element */}
