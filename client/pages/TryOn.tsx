@@ -157,13 +157,29 @@ export default function TryOn() {
   const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
+      // Validate file using service validation
+      const validation = fileUpload.validateFile(file, 10 * 1024 * 1024, [
+        "image/jpeg",
+        "image/png",
+        "image/webp",
+      ]);
+
+      if (!validation.valid) {
+        console.error("File validation failed:", validation.errors);
+        return;
+      }
+
       const reader = new FileReader();
       reader.onload = (e) => {
         const imageUrl = e.target?.result as string;
         if (tryMode === "clothes") {
           actions.setUserPhoto(imageUrl);
+          // Reset clothing try-on state
+          clothingTryOn.reset();
         } else {
           actions.setRoomPhoto(imageUrl);
+          // Reset decor visualization state
+          decorVisualization.reset();
         }
         // Clear preview when uploading new photo
         actions.setPreviewImage(null);
