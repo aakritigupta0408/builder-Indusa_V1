@@ -258,7 +258,9 @@ export default function TryOn() {
             {/* Mode Toggle */}
             <Tabs
               value={tryMode}
-              onValueChange={(value: "clothes" | "decor") => setTryMode(value)}
+              onValueChange={(value: "clothes" | "decor") =>
+                actions.setTryMode(value)
+              }
             >
               <TabsList>
                 <TabsTrigger
