@@ -651,12 +651,10 @@ export default function Index() {
           <div className="text-center">
             <div className="flex items-center justify-center space-x-3 mb-4">
               <IndusaLogo size="lg" />
-              <span className="text-xl font-bold bg-gradient-to-r from-pink-500 via-orange-400 to-pink-600 bg-clip-text text-transparent">
-                Indusa
-              </span>
+              <span className="text-xl font-bold text-primary">Indusa</span>
             </div>
             <p className="text-muted-foreground">
-              © 2024 Indusa. Where tradition meets innovation.
+              © 2024 Indusa. Made by Humans. Delivered By AI.
             </p>
           </div>
         </div>
