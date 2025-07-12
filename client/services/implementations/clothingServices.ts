@@ -286,7 +286,7 @@ export class ReplicateClothingTryOnService implements IClothingTryOnService {
         processingTime: result.metrics?.predict_time,
         metadata: {
           bodyDetected: true,
-          garmentFit: "regular",
+          garmentFit: "perfect",
           recommendations: [],
         },
       };
