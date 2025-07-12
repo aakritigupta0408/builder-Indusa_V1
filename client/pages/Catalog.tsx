@@ -27,6 +27,7 @@ const sortOptions = [
 export default function Catalog() {
   const { state } = useApp();
   const actions = useAppActions();
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [selectedCategory, setSelectedCategory] = useState("all");
