@@ -68,6 +68,8 @@ export default function Catalog() {
     let filtered = baseProducts.filter((product) => {
       return (
         (selectedCategory === "all" || product.category === selectedCategory) &&
+        (selectedSubcategory === "all" ||
+          product.subcategory === selectedSubcategory) &&
         (selectedColor === "all" || product.color === selectedColor) &&
         (selectedMaterial === "all" || product.material === selectedMaterial)
       );
