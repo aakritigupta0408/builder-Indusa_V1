@@ -72,6 +72,8 @@ const initialState: AppState = {
   cart: [],
   wishlist: [],
   filteredProducts: [],
+  searchQuery: "",
+  searchResults: [],
   isGuest: true,
   user: null,
 };
