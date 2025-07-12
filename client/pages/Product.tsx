@@ -560,7 +560,7 @@ export default function ProductPage() {
                                 {product.name}
                               </p>
                               <p className="text-xs opacity-90">
-                                {product.brand} • Virtual Try-On by TrySpace AI
+                                {product.brand} • Virtual Try-On by Indusa AI
                               </p>
                               <div className="flex items-center gap-1 mt-1">
                                 <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
