@@ -31,7 +31,6 @@ import {
   Home,
   Sofa,
   Tags,
-  Closet,
 } from "lucide-react";
 import { useApp, useAppActions } from "@/context/AppContext";
 import { useAuth } from "@/context/AuthContext";
@@ -152,33 +151,31 @@ export default function Navigation() {
           </div>
         </Link>
 
-                {/* Desktop Navigation */}
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center flex-1 justify-center">
-          {/* Nav Items */}
           <nav className="flex items-center space-x-6">
             {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`flex items-center gap-2 font-semibold transition-all duration-300 px-3 py-2 rounded-lg relative group whitespace-nowrap ${
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex items-center gap-2 font-semibold transition-all duration-300 px-3 py-2 rounded-lg relative group whitespace-nowrap ${
+                  isActive(item.path)
+                    ? "text-primary bg-primary/10"
+                    : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                }`}
+              >
+                {item.icon && <item.icon className="h-4 w-4" />}
+                <span className="text-sm">{item.label}</span>
+                <div
+                  className={`absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform transition-transform duration-300 ${
                     isActive(item.path)
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-primary hover:bg-primary/5"
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
                   }`}
-                >
-                  {item.icon && <item.icon className="h-4 w-4" />}
-                  <span className="text-sm">{item.label}</span>
-                  <div
-                    className={`absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform transition-transform duration-300 ${
-                      isActive(item.path)
-                        ? "scale-x-100"
-                        : "scale-x-0 group-hover:scale-x-100"
-                    }`}
-                  ></div>
-                </Link>
-              ))}
-            </nav>
-          </div>
+                ></div>
+              </Link>
+            ))}
+          </nav>
         </div>
 
         {/* Right Side Actions */}
