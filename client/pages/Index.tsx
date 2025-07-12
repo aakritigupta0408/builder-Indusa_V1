@@ -535,26 +535,70 @@ export default function Index() {
       </section>
 
       {/* AI Sizing Banner */}
-      <section className="py-16 bg-gradient-to-r from-primary to-luxury text-white">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-2xl mx-auto">
-            <Sparkles className="w-12 h-12 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-4">
-              Get Your Perfect Fit from a Single Photo
+      <section className="py-20 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-10 right-10 w-16 h-16 bg-yellow-300/20 rounded-full animate-pulse"></div>
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-300/15 rounded-full animate-ping"></div>
+          <div className="absolute top-20 right-20 w-12 h-12 bg-green-300/20 rounded-full animate-bounce delay-500"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto">
+            {/* Icon with enhanced styling */}
+            <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl border-4 border-white/30">
+              <Sparkles className="w-10 h-10 text-white animate-pulse" />
+            </div>
+
+            {/* Main headline with better visibility */}
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight drop-shadow-2xl">
+              GET YOUR
+              <span className="bg-gradient-to-r from-yellow-300 via-white to-cyan-300 bg-clip-text text-transparent">
+                {" "}
+                PERFECT FIT
+              </span>
+              <br />
+              FROM A SINGLE PHOTO! 📸
             </h2>
-            <p className="text-lg text-white/90 mb-6">
-              Our AI technology analyzes your body shape and suggests the
-              perfect size for any garment, reducing returns by up to 60%.
+
+            {/* Enhanced description */}
+            <p className="text-xl md:text-2xl text-white font-bold mb-8 drop-shadow-lg max-w-3xl mx-auto leading-relaxed">
+              💫 Our AI technology analyzes your body shape and suggests the
+              perfect size for any garment!
+              <span className="text-yellow-300 font-black">
+                {" "}
+                No more returns, no more guessing!{" "}
+              </span>
+              Reducing returns by up to 60%. 🎯
             </p>
+
+            {/* Enhanced CTA button */}
             <Link to="/ai-sizing">
               <Button
                 size="lg"
-                variant="secondary"
-                className="bg-white text-primary hover:bg-white/90"
+                className="text-xl px-12 py-8 font-black bg-white text-black hover:bg-yellow-300 shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-black"
               >
-                Try AI Sizing
+                📏 TRY AI SIZING NOW
+                <Sparkles className="ml-3 h-6 w-6" />
               </Button>
             </Link>
+
+            {/* Additional trust elements */}
+            <div className="mt-8 flex flex-wrap justify-center gap-4 text-white/90 font-bold">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                <span>🎯</span>
+                <span>99% Accuracy</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                <span>⚡</span>
+                <span>Instant Results</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                <span>💎</span>
+                <span>Used by 1M+ People</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
