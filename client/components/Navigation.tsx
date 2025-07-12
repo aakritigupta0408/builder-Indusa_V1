@@ -101,9 +101,14 @@ export default function Navigation() {
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
           <IndusaLogo size="lg" />
-          <span className="text-xl font-bold bg-gradient-to-r from-pink-500 via-orange-400 to-pink-600 bg-clip-text text-transparent">
-            Indusa
-          </span>
+          <div className="flex flex-col">
+            <span className="text-xl font-black bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent tracking-tight">
+              INDUSA
+            </span>
+            <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest -mt-1">
+              ✨ AI FASHION ✨
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
