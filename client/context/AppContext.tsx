@@ -58,8 +58,21 @@ type AppAction =
   | { type: "SET_ROOM_PHOTO"; payload: string | null }
   | { type: "SET_SELECTED_PRODUCT"; payload: Product | null }
   | { type: "SET_PROCESSING"; payload: boolean }
-  | { type: "ADD_TO_CART"; payload: Product }
+  | {
+      type: "ADD_TO_CART";
+      payload: {
+        product: Product;
+        quantity?: number;
+        selectedSize?: string;
+        selectedColor?: string;
+      };
+    }
   | { type: "REMOVE_FROM_CART"; payload: number }
+  | {
+      type: "UPDATE_CART_QUANTITY";
+      payload: { productId: number; quantity: number };
+    }
+  | { type: "CLEAR_CART" }
   | { type: "ADD_TO_WISHLIST"; payload: Product }
   | { type: "REMOVE_FROM_WISHLIST"; payload: number }
   | { type: "SET_FILTERED_PRODUCTS"; payload: Product[] }
