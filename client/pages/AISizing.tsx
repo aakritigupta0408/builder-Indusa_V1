@@ -85,6 +85,18 @@ export default function AISizing() {
 
     files.forEach((file, index) => {
       if (uploadedPhotos.length + index < 3) {
+        // Validate file using service validation
+        const validation = fileUpload.validateFile(file, 10 * 1024 * 1024, [
+          "image/jpeg",
+          "image/png",
+          "image/webp",
+        ]);
+
+        if (!validation.valid) {
+          console.error("File validation failed:", validation.errors);
+          return;
+        }
+
         const reader = new FileReader();
         reader.onload = (e) => {
           const newPhoto: UploadedPhoto = {
