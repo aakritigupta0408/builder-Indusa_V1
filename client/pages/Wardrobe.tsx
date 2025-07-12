@@ -43,6 +43,8 @@ import {
 import { useApp } from "@/context/AppContext";
 import { useAuth } from "@/context/AuthContext";
 import { Product } from "@/context/AppContext";
+import { InstagramShare } from "@/components/InstagramShare";
+import { TryOnWatermark } from "@/components/TryOnWatermark";
 
 // Mock data for purchased items (in a real app, this would come from an API)
 const mockPurchasedItems: Product[] = [
@@ -318,23 +320,280 @@ export default function Wardrobe() {
           </div>
         </div>
 
-        <Tabs defaultValue="collection" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="collection" className="gap-2">
+        <Tabs defaultValue="purchased" className="space-y-6">
+          <TabsList className="grid w-full grid-cols-5">
+            <TabsTrigger value="purchased" className="gap-2">
               <ShoppingBag className="h-4 w-4" />
+              Past Orders
+            </TabsTrigger>
+            <TabsTrigger value="personal" className="gap-2">
+              <Upload className="h-4 w-4" />
               My Collection
+            </TabsTrigger>
+            <TabsTrigger value="wishlist" className="gap-2">
+              <Heart className="h-4 w-4" />
+              Wishlist
             </TabsTrigger>
             <TabsTrigger value="outfits" className="gap-2">
               <Palette className="h-4 w-4" />
               Saved Outfits
             </TabsTrigger>
-            <TabsTrigger value="favorites" className="gap-2">
-              <Heart className="h-4 w-4" />
-              Favorites
+            <TabsTrigger value="all" className="gap-2">
+              <Filter className="h-4 w-4" />
+              All Items
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="collection" className="space-y-6">
+          <TabsContent value="purchased" className="space-y-6">
+            {/* Past Orders */}
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold mb-2">
+                Items from Past Orders
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Items you've purchased through Indusa
+              </p>
+            </div>
+            {/* Search and Filters */}
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                <Input
+                  placeholder="Search past orders..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
+              <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                <SelectTrigger className="w-full md:w-48">
+                  <Filter className="h-4 w-4 mr-2" />
+                  <SelectValue placeholder="Category" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Categories</SelectItem>
+                  <SelectItem value="clothing">Clothing</SelectItem>
+                  <SelectItem value="decor">Home Decor</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Items Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredItems
+                .filter((item) => !item.isPersonalItem)
+                .map((item) => (
+                  <Card
+                    key={item.id}
+                    className="group hover:shadow-lg transition-all duration-300"
+                  >
+                    <CardContent className="p-4">
+                      <div className="aspect-square bg-neutral-100 rounded-lg mb-4 overflow-hidden">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="flex items-start justify-between">
+                          <h3 className="font-semibold text-sm line-clamp-2">
+                            {item.name}
+                          </h3>
+                          <Badge variant="default" className="text-xs">
+                            Purchased
+                          </Badge>
+                        </div>
+
+                        <p className="text-sm text-muted-foreground">
+                          {item.brand}
+                        </p>
+                        <p className="text-sm font-medium">{item.color}</p>
+
+                        <div className="flex gap-2 pt-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="flex-1 gap-1"
+                            onClick={() => handleAddToStyleStudio(item)}
+                          >
+                            <Plus className="h-3 w-3" />
+                            Style
+                          </Button>
+                          <Button size="sm" variant="outline" className="gap-1">
+                            <Eye className="h-3 w-3" />
+                            Try On
+                          </Button>
+                          <InstagramShare
+                            imageUrl={item.image}
+                            productName={item.name}
+                            designerName={item.brand}
+                            variant="icon"
+                          />
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+            </div>
+
+            {filteredItems.filter((item) => !item.isPersonalItem).length ===
+              0 && (
+              <div className="text-center py-16">
+                <ShoppingBag className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+                <h3 className="text-xl font-semibold mb-2">
+                  No past orders found
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Items from your previous purchases will appear here
+                </p>
+                <Button
+                  onClick={() => (window.location.href = "/catalog")}
+                  className="gap-2"
+                >
+                  <ShoppingBag className="h-4 w-4" />
+                  Start Shopping
+                </Button>
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="personal" className="space-y-6">
+            {/* Personal Collection */}
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold mb-2">
+                My Personal Collection
+              </h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Items you've added from your own wardrobe
+              </p>
+            </div>
+            {/* Search and Filters */}
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                <Input
+                  placeholder="Search personal collection..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
+              <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                <SelectTrigger className="w-full md:w-48">
+                  <Filter className="h-4 w-4 mr-2" />
+                  <SelectValue placeholder="Category" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Categories</SelectItem>
+                  <SelectItem value="clothing">Clothing</SelectItem>
+                  <SelectItem value="decor">Home Decor</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Items Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredItems
+                .filter((item) => item.isPersonalItem)
+                .map((item) => (
+                  <Card
+                    key={item.id}
+                    className="group hover:shadow-lg transition-all duration-300"
+                  >
+                    <CardContent className="p-4">
+                      <div className="aspect-square bg-neutral-100 rounded-lg mb-4 overflow-hidden">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="flex items-start justify-between">
+                          <h3 className="font-semibold text-sm line-clamp-2">
+                            {item.name}
+                          </h3>
+                          <Badge variant="secondary" className="text-xs">
+                            Personal
+                          </Badge>
+                        </div>
+
+                        <p className="text-sm text-muted-foreground">
+                          {item.brand}
+                        </p>
+                        <p className="text-sm font-medium">{item.color}</p>
+
+                        <div className="flex gap-2 pt-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="flex-1 gap-1"
+                            onClick={() => handleAddToStyleStudio(item)}
+                          >
+                            <Plus className="h-3 w-3" />
+                            Style
+                          </Button>
+                          <Button size="sm" variant="outline" className="gap-1">
+                            <Eye className="h-3 w-3" />
+                            Try On
+                          </Button>
+                          <InstagramShare
+                            imageUrl={item.image}
+                            productName={item.name}
+                            designerName={item.brand}
+                            variant="icon"
+                          />
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+            </div>
+
+            {filteredItems.filter((item) => item.isPersonalItem).length ===
+              0 && (
+              <div className="text-center py-16">
+                <Upload className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+                <h3 className="text-xl font-semibold mb-2">
+                  No personal items yet
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  Add items from your own wardrobe to try them on virtually
+                </p>
+                <Button
+                  onClick={() => setIsAddItemOpen(true)}
+                  className="gap-2"
+                >
+                  <Plus className="h-4 w-4" />
+                  Add Personal Item
+                </Button>
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="wishlist" className="space-y-6">
+            <div className="text-center py-16">
+              <Heart className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
+              <h3 className="text-xl font-semibold mb-2">
+                Your Wishlist Items
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                Items you've saved for later will appear here
+              </p>
+              <Button
+                onClick={() => (window.location.href = "/catalog")}
+                className="gap-2"
+              >
+                <Heart className="h-4 w-4" />
+                Browse & Save Items
+              </Button>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="all" className="space-y-6">
             {/* Search and Filters */}
             <div className="flex flex-col md:flex-row gap-4">
               <div className="relative flex-1">
