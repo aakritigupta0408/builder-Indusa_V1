@@ -178,14 +178,7 @@ export default function Navigation() {
           </Button>
 
           {/* Cart */}
-          <Button variant="ghost" size="icon" className="relative">
-            <ShoppingBag className="h-4 w-4" />
-            {cartCount > 0 && (
-              <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs">
-                {cartCount}
-              </Badge>
-            )}
-          </Button>
+          <CartSidebar />
 
           {/* User Account */}
           {isAuthenticated ? (
