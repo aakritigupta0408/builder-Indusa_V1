@@ -73,6 +73,13 @@ export default {
           DEFAULT: "hsl(var(--neutral))",
           foreground: "hsl(var(--neutral-foreground))",
         },
+        professional: {
+          navy: "hsl(215 84% 20%)",
+          blue: "hsl(215 60% 45%)",
+          light: "hsl(215 60% 92%)",
+          gray: "hsl(210 15% 96%)",
+          dark: "hsl(215 25% 15%)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
