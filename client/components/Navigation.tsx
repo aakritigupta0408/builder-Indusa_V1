@@ -29,6 +29,7 @@ import {
   X,
 } from "lucide-react";
 import { useApp, useAppActions } from "@/context/AppContext";
+import { useAuth } from "@/context/AuthContext";
 import { searchProducts } from "@/data/products";
 import { IndusaLogo } from "./IndusaLogo";
 
