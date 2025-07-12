@@ -36,6 +36,7 @@ import { IndusaLogo } from "./IndusaLogo";
 export default function Navigation() {
   const { state } = useApp();
   const actions = useAppActions();
+  const { user, isAuthenticated, logout } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
