@@ -462,6 +462,18 @@ export default function Index() {
                         className="bg-white text-black hover:bg-white/90"
                         onClick={(e) => {
                           e.stopPropagation();
+                          actions.addToCart(product, 1);
+                        }}
+                      >
+                        <ShoppingBag className="h-3 w-3 mr-1" />
+                        Add to Cart
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="bg-white/90 hover:bg-white"
+                        onClick={(e) => {
+                          e.stopPropagation();
                           navigate("/try-on");
                         }}
                       >
