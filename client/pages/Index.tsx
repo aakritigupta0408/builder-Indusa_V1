@@ -94,19 +94,20 @@ export default function Index() {
       <section className="relative bg-gradient-to-br from-neutral via-background to-secondary py-20 lg:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-primary/10 text-primary border-primary/20">
-              🚀 Now with AI-Powered Virtual Try-On
+            <Badge className="mb-6 bg-gradient-to-r from-pink-500/20 to-purple-500/20 text-primary border-primary/30 font-bold text-sm">
+              ✨ AI-Powered Virtual Try-On • NO CAP! ✨
             </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-              Try Before You Buy —{" "}
-              <span className="bg-gradient-to-r from-primary to-luxury bg-clip-text text-transparent">
-                On You. In Your Space.
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 leading-tight tracking-tight">
+              TRY BEFORE YOU BUY —{" "}
+              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+                ON YOU. IN YOUR SPACE.
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Experience the future of shopping with our AI-powered virtual
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-medium">
+              💫 Experience the future of shopping with our AI-powered virtual
               try-on technology. See how clothes look on you and how furniture
-              fits your space before you buy.
+              fits your space before you buy. It's giving main character energy!
+              🔥
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/catalog">
