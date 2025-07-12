@@ -24,27 +24,29 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <AppProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Navigation />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/catalog" element={<Catalog />} />
-            <Route path="/product/:id" element={<Product />} />
-            <Route path="/try-on" element={<TryOn />} />
-            <Route path="/ai-sizing" element={<AISizing />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </AppProvider>
+    <AuthProvider>
+      <AppProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Navigation />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/catalog" element={<Catalog />} />
+              <Route path="/product/:id" element={<Product />} />
+              <Route path="/try-on" element={<TryOn />} />
+              <Route path="/ai-sizing" element={<AISizing />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </AppProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 
