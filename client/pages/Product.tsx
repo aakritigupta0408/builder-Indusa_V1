@@ -611,14 +611,23 @@ export default function ProductPage() {
                                 ${product.originalPrice}
                               </p>
                             )}
-                            <Button
-                              size="sm"
-                              className="mt-2 bg-white text-black hover:bg-white/90 font-medium"
-                              onClick={handleAddToCart}
-                            >
-                              <ShoppingBag className="w-3 h-3 mr-1" />
-                              Add to Cart
-                            </Button>
+                            <div className="flex gap-2 mt-2">
+                              <Button
+                                size="sm"
+                                className="bg-white text-black hover:bg-white/90 font-medium flex-1"
+                                onClick={handleAddToCart}
+                              >
+                                <ShoppingBag className="w-3 h-3 mr-1" />
+                                Add to Cart
+                              </Button>
+                              <InstagramShare
+                                imageUrl={previewImage || undefined}
+                                productName={product.name}
+                                designerName={product.brand}
+                                variant="icon"
+                                className="bg-white text-black hover:bg-white/90"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
