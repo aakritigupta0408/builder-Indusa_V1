@@ -29,7 +29,6 @@ import {
   X,
   Shirt,
   Home,
-  ShirtIcon,
   Sofa,
 } from "lucide-react";
 import { useApp, useAppActions } from "@/context/AppContext";
