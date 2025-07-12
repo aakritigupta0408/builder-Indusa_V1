@@ -8,8 +8,10 @@ export interface Product {
   originalPrice?: number;
   brand: string;
   color: string;
+  availableColors?: string[];
   category: "clothing" | "decor";
   image: string;
+  images?: { [color: string]: string };
   rating: number;
   reviews?: number;
   size?: string[];
