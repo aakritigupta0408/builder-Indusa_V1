@@ -432,11 +432,20 @@ export default function TryOn() {
                     />
                     <Button
                       size="lg"
-                      onClick={() => fileInputRef.current?.click()}
+                      onClick={() => {
+                        if (state.isGuest) {
+                          setShowSignupPrompt(true);
+                        } else {
+                          fileInputRef.current?.click();
+                        }
+                      }}
                       className="w-full"
+                      variant={state.isGuest ? "outline" : "default"}
                     >
                       <Upload className="w-4 h-4 mr-2" />
-                      Upload {tryMode === "clothes" ? "Photo" : "Room Photo"}
+                      {state.isGuest
+                        ? `Sign up to upload ${tryMode === "clothes" ? "photo" : "room photo"}`
+                        : `Upload ${tryMode === "clothes" ? "Photo" : "Room Photo"}`}
                     </Button>
                   </div>
                 </Card>
