@@ -124,15 +124,20 @@ const mockDecorProducts = [
 ];
 
 export default function TryOn() {
-  const [tryMode, setTryMode] = useState<"clothes" | "decor">("clothes");
-  const [userPhoto, setUserPhoto] = useState<string | null>(null);
-  const [roomPhoto, setRoomPhoto] = useState<string | null>(null);
-  const [previewImage, setPreviewImage] = useState<string | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState<any>(null);
-  const [isProcessing, setIsProcessing] = useState(false);
+  const { state } = useApp();
+  const actions = useAppActions();
   const [sortBy, setSortBy] = useState("popular");
   const [showSignupPrompt, setShowSignupPrompt] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const {
+    tryMode,
+    userPhoto,
+    roomPhoto,
+    previewImage,
+    selectedProduct,
+    isProcessing,
+  } = state;
 
   const currentPhoto = tryMode === "clothes" ? userPhoto : roomPhoto;
   const currentProducts =
