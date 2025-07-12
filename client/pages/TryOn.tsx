@@ -158,6 +158,16 @@ export default function TryOn() {
   const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
+      // Check if user is guest - require signup for try-on functionality
+      if (state.isGuest) {
+        setShowSignupPrompt(true);
+        // Clear the file input
+        if (event.target) {
+          event.target.value = "";
+        }
+        return;
+      }
+
       // Validate file using service validation
       const validation = fileUpload.validateFile(file, 10 * 1024 * 1024, [
         "image/jpeg",
