@@ -12,6 +12,7 @@ import Index from "./pages/Index";
 import Catalog from "./pages/Catalog";
 import Product from "./pages/Product";
 import TryOn from "./pages/TryOn";
+import AISizing from "./pages/AISizing";
 import Dashboard from "./pages/Dashboard";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
