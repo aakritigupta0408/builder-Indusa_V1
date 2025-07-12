@@ -25,10 +25,18 @@ const sortOptions = [
 ];
 
 export default function Catalog() {
+  const { state } = useApp();
+  const actions = useAppActions();
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedColor, setSelectedColor] = useState("all");
   const [selectedMaterial, setSelectedMaterial] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
+
+  // Get search query from URL
+  const searchQuery = searchParams.get("search") || "";
+  const categoryFromUrl = searchParams.get("category") || "";
 
   const filteredAndSortedProducts = useMemo(() => {
     let filtered = mockProducts.filter((product) => {
