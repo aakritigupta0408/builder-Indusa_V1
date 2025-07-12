@@ -28,6 +28,9 @@ import {
   Sparkles,
   X,
   Shirt,
+  Home,
+  ShirtIcon,
+  Sofa,
 } from "lucide-react";
 import { useApp, useAppActions } from "@/context/AppContext";
 import { useAuth } from "@/context/AuthContext";
@@ -55,20 +58,27 @@ export default function Navigation() {
   const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
-    { path: "/", label: "Home" },
+    { path: "/", label: "Home", icon: Home },
     {
-      path: "/designers",
-      label: "Shop by Designer",
-      description: "Designer Stores",
+      path: "/catalog?category=clothing",
+      label: "Apparel",
+      icon: ShirtIcon,
+      description: "Fashion & Clothing",
     },
+    {
+      path: "/catalog?category=decor",
+      label: "Home & Decor",
+      icon: Sofa,
+      description: "Furniture & Decor",
+    },
+    { path: "/try-on", label: "Virtual Try-On", icon: Sparkles },
+    { path: "/ai-sizing", label: "AI Sizing" },
     {
       path: "/wardrobe",
       label: "My Wardrobe",
       icon: Shirt,
       description: "Personal Collection",
     },
-    { path: "/try-on", label: "Virtual Try-On", icon: Sparkles },
-    { path: "/ai-sizing", label: "AI Sizing" },
   ];
 
   // Search functionality
