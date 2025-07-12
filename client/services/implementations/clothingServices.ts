@@ -334,7 +334,7 @@ export class ReplicateClothingTryOnService implements IClothingTryOnService {
         success: true,
         data: {
           id: jobId,
-          status: data.status,
+          status: this.mapReplicateStatus(data.status),
           progress: this.calculateProgress(data.status),
           message: data.status,
         },
