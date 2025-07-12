@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,11 +9,14 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import { Search, ShoppingBag, Heart, User, Menu, Sparkles } from "lucide-react";
+import { useApp } from "@/context/AppContext";
 
 export default function Navigation() {
-  const [cartCount] = useState(0);
-  const [wishlistCount] = useState(0);
+  const { state } = useApp();
   const location = useLocation();
+
+  const cartCount = state.cart.length;
+  const wishlistCount = state.wishlist.length;
 
   const isActive = (path: string) => location.pathname === path;
 
