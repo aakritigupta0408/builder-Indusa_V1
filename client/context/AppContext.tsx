@@ -35,7 +35,7 @@ export interface AppState {
   isProcessing: boolean;
 
   // Shopping state
-  cart: Product[];
+  cart: CartItem[];
   wishlist: Product[];
   filteredProducts: Product[];
   searchQuery: string;
