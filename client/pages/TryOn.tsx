@@ -162,15 +162,15 @@ export default function TryOn() {
     }
   };
 
-  const handleTryOnProduct = async (product: any) => {
+  const handleTryOnProduct = async (product: Product) => {
     if (!currentPhoto) {
       // Prompt to upload photo
       fileInputRef.current?.click();
       return;
     }
 
-    setIsProcessing(true);
-    setSelectedProduct(product);
+    actions.setProcessing(true);
+    actions.setSelectedProduct(product);
 
     // Simulate API call to KLING/ReimagineHome
     try {
@@ -178,11 +178,11 @@ export default function TryOn() {
 
       // In a real implementation, this would call the actual AI APIs
       // For demo purposes, we'll simulate an overlay effect
-      setPreviewImage(currentPhoto); // This would be the processed image with product overlay
+      actions.setPreviewImage(currentPhoto); // This would be the processed image with product overlay
     } catch (error) {
       console.error("Try-on failed:", error);
     } finally {
-      setIsProcessing(false);
+      actions.setProcessing(false);
     }
   };
 
