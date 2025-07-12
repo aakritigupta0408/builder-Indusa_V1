@@ -180,21 +180,63 @@ export default function TryOn() {
       return;
     }
 
-    actions.setProcessing(true);
     actions.setSelectedProduct(product);
 
-    // Simulate API call to KLING/ReimagineHome
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate processing time
+      if (tryMode === "clothes") {
+        // Use clothing try-on service
+        const userPhotoFile = await urlToFile(currentPhoto, "user-photo.jpg");
+        const garmentFile = await urlToFile(product.image, "garment.jpg");
 
-      // In a real implementation, this would call the actual AI APIs
-      // For demo purposes, we'll simulate an overlay effect
-      actions.setPreviewImage(currentPhoto); // This would be the processed image with product overlay
+        const userPhotoUpload = fileUpload.createMediaUpload(userPhotoFile);
+        const garmentUpload = fileUpload.createMediaUpload(garmentFile);
+
+        await clothingTryOn.tryOn({
+          userPhoto: userPhotoUpload,
+          garmentImage: garmentUpload,
+          garmentId: product.id.toString(),
+          options: {
+            quality: "high",
+            preserveBackground: true,
+          },
+        });
+
+        if (clothingTryOn.result) {
+          actions.setPreviewImage(clothingTryOn.result.processedImageUrl);
+        }
+      } else {
+        // Use decor visualization service
+        const roomPhotoFile = await urlToFile(currentPhoto, "room-photo.jpg");
+        const furnitureFile = await urlToFile(product.image, "furniture.jpg");
+
+        const roomPhotoUpload = fileUpload.createMediaUpload(roomPhotoFile);
+        const furnitureUpload = fileUpload.createMediaUpload(furnitureFile);
+
+        await decorVisualization.visualize({
+          roomPhoto: roomPhotoUpload,
+          furnitureImage: furnitureUpload,
+          furnitureId: product.id.toString(),
+          options: {
+            quality: "high",
+            roomDetection: true,
+            shadowGeneration: true,
+          },
+        });
+
+        if (decorVisualization.result) {
+          actions.setPreviewImage(decorVisualization.result.processedImageUrl);
+        }
+      }
     } catch (error) {
       console.error("Try-on failed:", error);
-    } finally {
-      actions.setProcessing(false);
     }
+  };
+
+  // Helper function to convert URL to File
+  const urlToFile = async (url: string, filename: string): Promise<File> => {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return new File([blob], filename, { type: blob.type });
   };
 
   const handleDownload = () => {
