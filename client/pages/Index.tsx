@@ -294,177 +294,163 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Category Tiles */}
-      <section className="py-20 bg-black relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-cyan-400 to-green-400 rounded-full blur-3xl opacity-15 animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-2xl opacity-25 animate-bounce"></div>
-        </div>
-
-        <div className="relative z-10 container mx-auto px-4">
+      {/* Shop by Category */}
+      <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <span className="text-4xl">🔥</span>
-              <h2 className="text-4xl md:text-6xl font-black text-white">
-                SHOP BY
-                <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent ml-4">
-                  CATEGORY
-                </span>
-              </h2>
-              <span className="text-4xl">🔥</span>
-            </div>
-            <p className="text-xl text-white/80 font-bold">
-              Pick your vibe! What's your mood today? ✨
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Shop by Category
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Discover our curated collections with AI-powered virtual try-on
+              technology for both fashion and home decor
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Apparel Category */}
             <Link to="/catalog?category=clothing" className="group">
-              <div className="relative bg-gradient-to-br from-pink-500 via-purple-600 to-pink-700 rounded-3xl p-8 overflow-hidden transform group-hover:scale-105 transition-all duration-500 shadow-2xl border-4 border-white/20">
-                {/* Background pattern */}
-                <div
-                  className={
-                    'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="60" height="60" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="dots" width="60" height="60" patternUnits="userSpaceOnUse"%3E%3Ccircle cx="30" cy="30" r="2" fill="white" opacity="0.1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23dots)" /%3E%3C/svg%3E\')] opacity-30'
-                  }
-                ></div>
-
-                {/* Floating elements */}
-                <div className="absolute top-4 right-4 text-6xl animate-bounce">
-                  👗
-                </div>
-                <div className="absolute top-8 left-8 text-3xl animate-pulse delay-500">
-                  ✨
-                </div>
-                <div className="absolute bottom-8 right-12 text-2xl animate-ping delay-1000">
-                  💫
-                </div>
-
-                <div className="relative z-10 h-80 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                      <span className="text-white font-black text-sm">
-                        TRENDING NOW
-                      </span>
-                      <TrendingUp className="w-4 h-4 text-white" />
+              <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-primary/5 to-primary/10">
+                <CardContent className="p-8">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="space-y-3">
+                      <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-3 py-1 text-sm font-medium">
+                        <TrendingUp className="w-4 h-4" />
+                        Fashion
+                      </div>
+                      <h3 className="text-2xl font-bold text-foreground">
+                        Shop Apparel
+                      </h3>
+                      <p className="text-muted-foreground">
+                        Try on clothes virtually with our AI technology. See how
+                        garments look on you before purchasing.
+                      </p>
                     </div>
-
-                    <h3 className="text-4xl md:text-5xl font-black text-white leading-tight">
-                      SHOP
-                      <br />
-                      <span className="bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
-                        APPAREL
-                      </span>
-                    </h3>
+                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <ShirtIcon className="w-8 h-8 text-primary" />
+                    </div>
                   </div>
 
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                        <ShirtIcon className="w-6 h-6 text-white" />
+                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                        <Sparkles className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-white font-bold text-lg">
-                        AI Try-On Ready
+                      <span className="text-sm font-medium text-foreground">
+                        AI Virtual Try-On
                       </span>
                     </div>
 
-                    <p className="text-white/90 font-medium text-lg">
-                      🌟 See how clothes look on YOU before buying! From
-                      streetwear to formal - we got your fits!
-                    </p>
-
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+                    <div className="bg-card rounded-lg p-4 border">
                       <div className="flex items-center justify-between">
-                        <span className="text-white font-black text-sm">
-                          VIRTUAL TRY-ON
+                        <span className="text-sm font-medium text-foreground">
+                          Available for all clothing items
                         </span>
-                        <Sparkles className="w-5 h-5 text-yellow-300 animate-pulse" />
+                        <div className="w-2 h-2 bg-success rounded-full"></div>
                       </div>
                     </div>
+
+                    <Button className="w-full group-hover:bg-primary/90 transition-colors">
+                      Browse Apparel
+                      <TrendingUp className="ml-2 h-4 w-4" />
+                    </Button>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </Link>
 
             {/* Home Decor Category */}
             <Link to="/catalog?category=decor" className="group">
-              <div className="relative bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-700 rounded-3xl p-8 overflow-hidden transform group-hover:scale-105 transition-all duration-500 shadow-2xl border-4 border-white/20">
-                {/* Background pattern */}
-                <div
-                  className={
-                    'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="40" height="40" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="squares" width="40" height="40" patternUnits="userSpaceOnUse"%3E%3Crect x="0" y="0" width="20" height="20" fill="white" opacity="0.05"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23squares)" /%3E%3C/svg%3E\')] opacity-40'
-                  }
-                ></div>
-
-                {/* Floating elements */}
-                <div className="absolute top-4 right-4 text-6xl animate-bounce delay-300">
-                  🏠
-                </div>
-                <div className="absolute top-8 left-8 text-3xl animate-pulse delay-700">
-                  🪴
-                </div>
-                <div className="absolute bottom-8 right-12 text-2xl animate-ping delay-500">
-                  🛋️
-                </div>
-
-                <div className="relative z-10 h-80 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
-                      <span className="text-white font-black text-sm">
-                        ROOM GOALS
-                      </span>
-                      <Home className="w-4 h-4 text-white" />
+              <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-accent/5 to-accent/10">
+                <CardContent className="p-8">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="space-y-3">
+                      <div className="inline-flex items-center gap-2 bg-accent/20 text-accent-foreground rounded-full px-3 py-1 text-sm font-medium">
+                        <Home className="w-4 h-4" />
+                        Home & Decor
+                      </div>
+                      <h3 className="text-2xl font-bold text-foreground">
+                        Shop Home Decor
+                      </h3>
+                      <p className="text-muted-foreground">
+                        Visualize furniture and decor in your actual space using
+                        our room placement technology.
+                      </p>
                     </div>
-
-                    <h3 className="text-4xl md:text-5xl font-black text-white leading-tight">
-                      SHOP
-                      <br />
-                      <span className="bg-gradient-to-r from-cyan-300 to-green-300 bg-clip-text text-transparent">
-                        HOME DECOR
-                      </span>
-                    </h3>
+                    <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Home className="w-8 h-8 text-accent-foreground" />
+                    </div>
                   </div>
 
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                        <Home className="w-6 h-6 text-white" />
+                      <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                        <Camera className="w-4 h-4 text-accent-foreground" />
                       </div>
-                      <span className="text-white font-bold text-lg">
-                        Room Visualization
+                      <span className="text-sm font-medium text-foreground">
+                        AR Room Visualization
                       </span>
                     </div>
 
-                    <p className="text-white/90 font-medium text-lg">
-                      🏡 Transform your space! Visualize furniture in YOUR room
-                      before you buy. Make it aesthetic!
-                    </p>
-
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+                    <div className="bg-card rounded-lg p-4 border">
                       <div className="flex items-center justify-between">
-                        <span className="text-white font-black text-sm">
-                          AR PLACEMENT
+                        <span className="text-sm font-medium text-foreground">
+                          See furniture in your space
                         </span>
                         <div className="flex gap-1">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse delay-100"></div>
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse delay-200"></div>
+                          <div className="w-2 h-2 bg-success rounded-full"></div>
+                          <div className="w-2 h-2 bg-success rounded-full opacity-60"></div>
+                          <div className="w-2 h-2 bg-success rounded-full opacity-30"></div>
                         </div>
                       </div>
                     </div>
+
+                    <Button
+                      variant="outline"
+                      className="w-full group-hover:bg-accent/10 border-2 transition-colors"
+                    >
+                      Browse Home Decor
+                      <Home className="ml-2 h-4 w-4" />
+                    </Button>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </Link>
           </div>
 
-          {/* Bottom decorative text */}
-          <div className="text-center mt-16">
-            <p className="text-white/60 font-bold text-lg">
-              💎 Choose your adventure and start shopping! 💎
-            </p>
+          {/* Features highlight */}
+          <div className="mt-16 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <Sparkles className="w-6 h-6 text-primary" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-1">AI-Powered</h4>
+              <p className="text-sm text-muted-foreground">
+                Advanced technology for accurate virtual try-ons
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <Camera className="w-6 h-6 text-success" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-1">
+                Instant Preview
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                See results immediately with real-time processing
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <Heart className="w-6 h-6 text-warning" />
+              </div>
+              <h4 className="font-semibold text-foreground mb-1">
+                Perfect Fit
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Reduce returns with confidence in your purchases
+              </p>
+            </div>
           </div>
         </div>
       </section>
