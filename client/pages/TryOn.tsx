@@ -517,38 +517,13 @@ export default function TryOn() {
                     </div>
                   )}
 
-                  {/* Brand Watermark */}
+                                    {/* Enhanced Watermarks */}
                   {previewImage && (
-                    <div className="absolute top-4 right-4">
-                      <div className="bg-white/95 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border">
-                        <div className="flex items-center gap-2">
-                          <IndusaIcon className="w-5 h-5" />
-                          <div className="text-xs">
-                            <p className="font-bold bg-gradient-to-r from-pink-500 via-orange-400 to-pink-600 bg-clip-text text-transparent">
-                              Indusa
-                            </p>
-                            <p className="text-muted-foreground leading-none">
-                              AI Try-On
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <TryOnWatermark
+                      designerName={selectedProduct?.brand}
+                      productName={selectedProduct?.name}
+                    />
                   )}
-
-                  {/* Product Information Watermark */}
-                  {previewImage && selectedProduct && (
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="bg-black/80 backdrop-blur-sm text-white p-4 rounded-lg border border-white/20">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                              <Sparkles className="w-5 h-5" />
-                            </div>
-                            <div>
-                              <p className="text-sm font-semibold">
-                                {selectedProduct.name}
-                              </p>
                               <p className="text-xs opacity-90">
                                 {selectedProduct.brand} • Virtual Try-On by
                                 Indusa AI
