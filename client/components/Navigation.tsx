@@ -33,7 +33,12 @@ import { searchProducts } from "@/data/products";
 
 export default function Navigation() {
   const { state } = useApp();
+  const actions = useAppActions();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const cartCount = state.cart.length;
   const wishlistCount = state.wishlist.length;
