@@ -52,6 +52,48 @@ export default function Navigation() {
     { path: "/ai-sizing", label: "AI Sizing" },
   ];
 
+  // Search functionality
+  const handleSearch = (query: string) => {
+    if (!query.trim()) return;
+
+    const results = searchProducts(query);
+    actions.setSearchQuery(query);
+    actions.setSearchResults(results);
+
+    // Navigate to catalog with search results
+    navigate(`/catalog?search=${encodeURIComponent(query)}`);
+    setIsSearchOpen(false);
+  };
+
+  const handleSearchInputChange = (value: string) => {
+    setSearchQuery(value);
+    if (value.trim()) {
+      const results = searchProducts(value);
+      actions.setSearchResults(results);
+    } else {
+      actions.setSearchResults([]);
+    }
+  };
+
+  const clearSearch = () => {
+    setSearchQuery("");
+    actions.setSearchQuery("");
+    actions.setSearchResults([]);
+  };
+
+  // Keyboard shortcut for search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
