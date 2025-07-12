@@ -215,14 +215,14 @@ export default function TryOn() {
   };
 
   const handleSave = () => {
-    // Check if user is logged in (simulated as false for demo)
-    const isLoggedIn = false;
-
-    if (!isLoggedIn) {
+    if (state.isGuest || !state.user) {
       setShowSignupPrompt(true);
     } else {
       // Save to user's collection
       console.log("Saving to user collection...");
+      if (selectedProduct) {
+        actions.addToWishlist(selectedProduct);
+      }
     }
   };
 
