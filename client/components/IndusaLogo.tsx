@@ -23,77 +23,89 @@ export const IndusaLogo: React.FC<IndusaLogoProps> = ({
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full"
       >
-        {/* Gradient Definitions */}
+        {/* Gen Z Gradient Definitions */}
         <defs>
           <linearGradient
-            id="barbieGradient"
+            id="genZMainGradient"
             x1="0%"
             y1="0%"
             x2="100%"
             y2="100%"
           >
-            <stop offset="0%" stopColor="#FF69B4" />
-            <stop offset="50%" stopColor="#FF1493" />
-            <stop offset="100%" stopColor="#DC143C" />
+            <stop offset="0%" stopColor="#FF0080" />
+            <stop offset="25%" stopColor="#FF3300" />
+            <stop offset="50%" stopColor="#FFFF00" />
+            <stop offset="75%" stopColor="#00FFFF" />
+            <stop offset="100%" stopColor="#8000FF" />
           </linearGradient>
-          <linearGradient
-            id="apsaraGradient"
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="100%"
-          >
-            <stop offset="0%" stopColor="#FFD700" />
-            <stop offset="50%" stopColor="#FF8C00" />
-            <stop offset="100%" stopColor="#B8860B" />
+          <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FF00FF" />
+            <stop offset="50%" stopColor="#00FFFF" />
+            <stop offset="100%" stopColor="#FFFF00" />
           </linearGradient>
-          <radialGradient id="centralGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+          <radialGradient id="holographicGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#FF00FF" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#00FFFF" stopOpacity="0.2" />
           </radialGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
 
-        {/* Apsara-inspired Lotus Base */}
-        <path
-          d="M16 4 C8 4, 4 12, 4 16 C4 20, 8 28, 16 28 C24 28, 28 20, 28 16 C28 12, 24 4, 16 4 Z"
-          fill="url(#apsaraGradient)"
-          opacity="0.8"
+        {/* Modern Geometric Base */}
+        <rect
+          x="6"
+          y="6"
+          width="20"
+          height="20"
+          rx="10"
+          fill="url(#genZMainGradient)"
+          transform="rotate(45 16 16)"
         />
 
-        {/* Traditional Indian Pattern Ring */}
+        {/* Neon Ring */}
         <circle
           cx="16"
           cy="16"
-          r="10"
+          r="12"
           fill="none"
-          stroke="url(#apsaraGradient)"
-          strokeWidth="1"
-          strokeDasharray="2,1"
-          opacity="0.6"
+          stroke="url(#neonGlow)"
+          strokeWidth="2"
+          opacity="0.8"
+          filter="url(#glow)"
         />
 
-        {/* Barbie-inspired Modern Heart */}
-        <path
-          d="M16 20 C13 17, 10 14, 10 11 C10 9, 12 8, 14 9 C15 9.5, 16 10.5, 16 10.5 C16 10.5, 17 9.5, 18 9 C20 8, 22 9, 22 11 C22 14, 19 17, 16 20 Z"
-          fill="url(#barbieGradient)"
+        {/* Bold I Symbol */}
+        <rect
+          x="14"
+          y="8"
+          width="4"
+          height="16"
+          rx="2"
+          fill="#FFFFFF"
+          filter="url(#glow)"
         />
 
-        {/* Apsara Crown Elements */}
-        <path
-          d="M13 8 L16 6 L19 8 L18 9 L16 8 L14 9 Z"
-          fill="url(#apsaraGradient)"
-        />
+        {/* Top and Bottom bars for I */}
+        <rect x="11" y="8" width="10" height="3" rx="1.5" fill="#FFFFFF" />
+        <rect x="11" y="21" width="10" height="3" rx="1.5" fill="#FFFFFF" />
 
-        {/* Barbie Sparkle */}
-        <circle cx="12" cy="10" r="1" fill="#FFB6C1" opacity="0.8" />
-        <circle cx="20" cy="10" r="1" fill="#FFB6C1" opacity="0.8" />
-        <circle cx="16" cy="7" r="0.5" fill="#FFD700" />
+        {/* Holographic Glow Effect */}
+        <circle cx="16" cy="16" r="14" fill="url(#holographicGlow)" />
 
-        {/* Central Glow */}
-        <circle cx="16" cy="16" r="12" fill="url(#centralGlow)" />
+        {/* Trendy Sparkles */}
+        <circle cx="8" cy="8" r="1.5" fill="#FFFF00" opacity="0.9" />
+        <circle cx="24" cy="8" r="1" fill="#FF00FF" opacity="0.8" />
+        <circle cx="8" cy="24" r="1" fill="#00FFFF" opacity="0.8" />
+        <circle cx="24" cy="24" r="1.5" fill="#FF0080" opacity="0.9" />
 
-        {/* Modern Geometric Accent */}
-        <path d="M16 12 L18 14 L16 16 L14 14 Z" fill="#FFFFFF" opacity="0.4" />
+        {/* Modern Accent Diamond */}
+        <path d="M16 4 L20 8 L16 12 L12 8 Z" fill="#FFFFFF" opacity="0.9" />
       </svg>
     </div>
   );
