@@ -488,6 +488,12 @@ export default function TryOn() {
                           <Share2 className="w-4 h-4 mr-2" />
                           Share
                         </Button>
+                        <InstagramShare
+                          imageUrl={previewImage || currentPhoto}
+                          productName={selectedProduct?.name}
+                          designerName={selectedProduct?.brand}
+                          variant="icon"
+                        />
                         <Button
                           variant="outline"
                           size="sm"
