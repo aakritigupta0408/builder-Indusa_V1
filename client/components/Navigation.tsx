@@ -136,20 +136,27 @@ export default function Navigation() {
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        {/* Desktop Navigation - Enhanced */}
+        <nav className="hidden md:flex items-center space-x-10">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`flex items-center gap-2 text-sm font-medium transition-colors duration-200 ${
+              className={`flex items-center gap-2 font-semibold transition-all duration-300 px-3 py-2 rounded-lg relative group ${
                 isActive(item.path)
-                  ? "text-primary border-b-2 border-primary pb-1"
-                  : "text-muted-foreground hover:text-primary"
+                  ? "text-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-primary hover:bg-primary/5"
               }`}
             >
               {item.icon && <item.icon className="h-4 w-4" />}
-              <span>{item.label}</span>
+              <span className="text-sm">{item.label}</span>
+              <div
+                className={`absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform transition-transform duration-300 ${
+                  isActive(item.path)
+                    ? "scale-x-100"
+                    : "scale-x-0 group-hover:scale-x-100"
+                }`}
+              ></div>
             </Link>
           ))}
         </nav>
@@ -394,7 +401,7 @@ export default function Navigation() {
                       }}
                       className="flex items-center gap-2"
                     >
-                      <span>��</span>
+                      <span>✨</span>
                       <div>
                         <p className="font-medium">Virtual Try-On</p>
                         <p className="text-xs text-muted-foreground">
