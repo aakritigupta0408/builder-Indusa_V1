@@ -517,55 +517,12 @@ export default function TryOn() {
                     </div>
                   )}
 
-                                    {/* Enhanced Watermarks */}
+                  {/* Enhanced Watermarks */}
                   {previewImage && (
                     <TryOnWatermark
                       designerName={selectedProduct?.brand}
                       productName={selectedProduct?.name}
                     />
-                  )}
-                              <p className="text-xs opacity-90">
-                                {selectedProduct.brand} • Virtual Try-On by
-                                Indusa AI
-                              </p>
-                              <div className="flex items-center gap-1 mt-1">
-                                <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                                <span className="text-xs">
-                                  {selectedProduct.rating}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-lg font-bold">
-                              ${selectedProduct.price}
-                            </p>
-                            <Button
-                              size="sm"
-                              className="mt-2 bg-white text-black hover:bg-white/90 font-medium"
-                              onClick={() =>
-                                selectedProduct &&
-                                actions.addToCart(selectedProduct)
-                              }
-                            >
-                              <ShoppingBag className="w-3 h-3 mr-1" />
-                              Add to Cart
-                            </Button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Corner Brand Watermark */}
-                  {previewImage && (
-                    <div className="absolute bottom-4 right-4">
-                      <div className="bg-white/95 backdrop-blur-sm px-2 py-1 rounded text-xs">
-                        <span className="font-bold bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent">
-                          Indusa.ai
-                        </span>
-                      </div>
-                    </div>
                   )}
                 </div>
 
