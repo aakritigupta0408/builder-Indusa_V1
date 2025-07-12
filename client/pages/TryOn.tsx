@@ -192,7 +192,7 @@ export default function TryOn() {
 
     const link = document.createElement("a");
     link.href = previewImage;
-    link.download = `tryspace-${tryMode}-${selectedProduct?.name || "preview"}.jpg`;
+    link.download = `indusa-${tryMode}-${selectedProduct?.name || "preview"}.jpg`;
     link.click();
   };
 
