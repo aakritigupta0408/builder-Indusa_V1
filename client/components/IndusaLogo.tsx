@@ -213,13 +213,14 @@ export const IndusaIcon: React.FC<{ className?: string }> = ({
           x2="100%"
           y2="100%"
         >
-          <stop offset="0%" stopColor="#FF0080" />
-          <stop offset="33%" stopColor="#FFFF00" />
-          <stop offset="66%" stopColor="#00FFFF" />
-          <stop offset="100%" stopColor="#FF00FF" />
+          <stop offset="0%" stopColor="#FF006E" />
+          <stop offset="25%" stopColor="#7C4DFF" />
+          <stop offset="50%" stopColor="#00BCD4" />
+          <stop offset="75%" stopColor="#4CAF50" />
+          <stop offset="100%" stopColor="#FFC107" />
         </linearGradient>
-        <filter id="iconGlow">
-          <feGaussianBlur stdDeviation="1" result="coloredBlur" />
+        <filter id="iconGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
           <feMerge>
             <feMergeNode in="coloredBlur" />
             <feMergeNode in="SourceGraphic" />
@@ -227,28 +228,46 @@ export const IndusaIcon: React.FC<{ className?: string }> = ({
         </filter>
       </defs>
 
-      {/* Simplified geometric version */}
-      <rect
-        x="4"
-        y="4"
-        width="16"
-        height="16"
-        rx="8"
+      {/* Layered circle base */}
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
         fill="url(#genZIconGradient)"
-        transform="rotate(45 12 12)"
         filter="url(#iconGlow)"
       />
 
-      {/* Bold I */}
-      <rect x="10.5" y="7" width="3" height="10" rx="1.5" fill="white" />
-      <rect x="8.5" y="7" width="7" height="2" rx="1" fill="white" />
-      <rect x="8.5" y="15" width="7" height="2" rx="1" fill="white" />
+      {/* Secondary geometric shape */}
+      <polygon
+        points="12,4 18,10 12,16 6,10"
+        fill="#7C4DFF"
+        opacity="0.7"
+        filter="url(#iconGlow)"
+      />
 
-      {/* Neon sparkles */}
-      <circle cx="6" cy="6" r="1" fill="#FFFF00" />
-      <circle cx="18" cy="6" r="0.8" fill="#FF00FF" />
-      <circle cx="6" cy="18" r="0.8" fill="#00FFFF" />
-      <circle cx="18" cy="18" r="1" fill="#FF0080" />
+      {/* Bold stylized "i" */}
+      <circle cx="12" cy="8" r="1.8" fill="white" filter="url(#iconGlow)" />
+      <rect
+        x="10.2"
+        y="11"
+        width="3.6"
+        height="8"
+        rx="1.8"
+        fill="white"
+        filter="url(#iconGlow)"
+      />
+
+      {/* Gen Z sparkles */}
+      <circle cx="4" cy="4" r="1" fill="#E91E63" opacity="0.8" />
+      <circle cx="20" cy="4" r="0.8" fill="#9C27B0" opacity="0.7" />
+      <circle cx="4" cy="20" r="0.8" fill="#3F51B5" opacity="0.7" />
+      <circle cx="20" cy="20" r="1" fill="#00BCD4" opacity="0.8" />
+
+      {/* Micro details */}
+      <circle cx="7" cy="2" r="0.5" fill="#FFC107" opacity="0.6" />
+      <circle cx="17" cy="2" r="0.4" fill="#4CAF50" opacity="0.5" />
+      <circle cx="2" cy="12" r="0.6" fill="#FF4081" opacity="0.7" />
+      <circle cx="22" cy="12" r="0.7" fill="#7C4DFF" opacity="0.6" />
     </svg>
   );
 };
