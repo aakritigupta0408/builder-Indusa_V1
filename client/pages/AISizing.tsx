@@ -510,19 +510,37 @@ export default function AISizing() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-3">
-                      {Object.entries(mockMeasurements).map(([key, value]) => (
-                        <div
-                          key={key}
-                          className="flex justify-between items-center py-2 border-b border-border/50 last:border-b-0"
-                        >
-                          <span className="text-sm font-medium capitalize">
-                            {key.replace(/([A-Z])/g, " $1").trim()}
-                          </span>
-                          <span className="text-sm font-semibold text-primary">
-                            {value}
-                          </span>
-                        </div>
-                      ))}
+                      {aiSizing.result?.measurements
+                        ? Object.entries(aiSizing.result.measurements).map(
+                            ([key, value]) => (
+                              <div
+                                key={key}
+                                className="flex justify-between items-center py-2 border-b border-border/50 last:border-b-0"
+                              >
+                                <span className="text-sm font-medium capitalize">
+                                  {key.replace(/([A-Z])/g, " $1").trim()}
+                                </span>
+                                <span className="text-sm font-semibold text-primary">
+                                  {value} cm
+                                </span>
+                              </div>
+                            ),
+                          )
+                        : Object.entries(mockMeasurements).map(
+                            ([key, value]) => (
+                              <div
+                                key={key}
+                                className="flex justify-between items-center py-2 border-b border-border/50 last:border-b-0"
+                              >
+                                <span className="text-sm font-medium capitalize">
+                                  {key.replace(/([A-Z])/g, " $1").trim()}
+                                </span>
+                                <span className="text-sm font-semibold text-primary">
+                                  {value}
+                                </span>
+                              </div>
+                            ),
+                          )}
                     </CardContent>
                   </Card>
                 </div>
