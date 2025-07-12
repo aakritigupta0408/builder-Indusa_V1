@@ -99,11 +99,11 @@ export default function Navigation() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-primary to-luxury rounded-lg flex items-center justify-center">
-            <Sparkles className="h-4 w-4 text-white" />
-          </div>
-          <span className="text-xl font-bold text-foreground">TrySpace</span>
+        <Link to="/" className="flex items-center space-x-3">
+          <IndusaLogo size="lg" />
+          <span className="text-xl font-bold bg-gradient-to-r from-pink-500 via-orange-400 to-pink-600 bg-clip-text text-transparent">
+            Indusa
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -280,7 +280,7 @@ export default function Navigation() {
                             {product.name}
                           </p>
                           <p className="text-xs text-muted-foreground">
-                            {product.brand} ��� {product.color}
+                            {product.brand} • {product.color}
                           </p>
                           <p className="text-sm font-semibold text-primary">
                             ${product.price}
