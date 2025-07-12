@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -77,10 +77,16 @@ export function InstagramShare({
     }
   };
 
-  const TriggerButton = () => {
+  const TriggerButton = forwardRef<HTMLButtonElement>((props, ref) => {
     if (variant === "icon") {
       return (
-        <Button size="icon" variant="outline" className={className}>
+        <Button
+          ref={ref}
+          size="icon"
+          variant="outline"
+          className={className}
+          {...props}
+        >
           <Instagram className="w-4 h-4" />
         </Button>
       );
@@ -89,8 +95,10 @@ export function InstagramShare({
     if (variant === "floating") {
       return (
         <Button
+          ref={ref}
           className={`fixed bottom-6 right-6 z-50 shadow-lg bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white ${className}`}
           size="lg"
+          {...props}
         >
           <Instagram className="w-5 h-5 mr-2" />
           Share on Instagram
@@ -100,13 +108,15 @@ export function InstagramShare({
 
     return (
       <Button
+        ref={ref}
         className={`bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white ${className}`}
+        {...props}
       >
         <Instagram className="w-4 h-4 mr-2" />
         Share on Instagram
       </Button>
     );
-  };
+  });
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
