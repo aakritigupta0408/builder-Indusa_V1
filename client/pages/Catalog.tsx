@@ -196,7 +196,8 @@ export default function Catalog() {
               {filteredAndSortedProducts.map((product) => (
                 <Card
                   key={product.id}
-                  className="group overflow-hidden border-0 shadow-sm hover:shadow-lg transition-all duration-300"
+                  className="group overflow-hidden border-0 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  onClick={() => navigate(`/product/${product.id}`)}
                 >
                   <div className="relative aspect-square overflow-hidden bg-neutral">
                     <img
