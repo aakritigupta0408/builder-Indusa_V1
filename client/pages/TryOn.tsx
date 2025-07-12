@@ -80,7 +80,7 @@ const mockClothingProducts: Product[] = [
   },
 ];
 
-const mockDecorProducts = [
+const mockDecorProducts: Product[] = [
   {
     id: 5,
     name: "Minimalist Sofa",
