@@ -109,23 +109,32 @@ export default function AISizing() {
   const startProcessing = async () => {
     if (uploadedPhotos.length === 0) return;
 
-    setIsProcessing(true);
-    setProcessingProgress(0);
+    try {
+      // Convert uploaded photos to MediaUpload format
+      const mediaUploads = await Promise.all(
+        uploadedPhotos.map(async (photo) => {
+          return fileUpload.createMediaUpload(photo.file);
+        }),
+      );
 
-    // Simulate AI processing with progress
-    const totalSteps = 100;
-    for (let i = 0; i <= totalSteps; i++) {
-      await new Promise((resolve) => setTimeout(resolve, 30));
-      setProcessingProgress(i);
+      // Start AI sizing analysis
+      await aiSizing.analyzeMeasurements({
+        photos: mediaUploads,
+        options: {
+          measurementUnits: "metric",
+          detailLevel: "comprehensive",
+        },
+      });
+
+      // Mark photos as processed if successful
+      if (aiSizing.result) {
+        setUploadedPhotos((prev) =>
+          prev.map((photo) => ({ ...photo, isProcessed: true })),
+        );
+      }
+    } catch (error) {
+      console.error("Sizing analysis failed:", error);
     }
-
-    // Mark photos as processed
-    setUploadedPhotos((prev) =>
-      prev.map((photo) => ({ ...photo, isProcessed: true })),
-    );
-
-    setIsProcessing(false);
-    setShowResults(true);
   };
 
   const resetAnalysis = () => {
