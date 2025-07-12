@@ -396,38 +396,80 @@ export default function TryOn() {
                     </div>
                   )}
 
-                  {/* Watermark */}
-                  {previewImage && selectedProduct && (
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="bg-black/70 text-white p-3 rounded-lg flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <Sparkles className="w-4 h-4" />
-                          <div>
-                            <p className="text-sm font-medium">
-                              {selectedProduct.name}
+                  {/* Brand Watermark */}
+                  {previewImage && (
+                    <div className="absolute top-4 right-4">
+                      <div className="bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border">
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-gradient-to-br from-primary to-luxury rounded flex items-center justify-center">
+                            <Sparkles className="h-3 w-3 text-white" />
+                          </div>
+                          <div className="text-xs">
+                            <p className="font-bold text-foreground">
+                              TrySpace
                             </p>
-                            <p className="text-xs opacity-90">
-                              Tried on with TrySpace AI •{" "}
-                              {selectedProduct.brand}
+                            <p className="text-muted-foreground leading-none">
+                              AI Try-On
                             </p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <p className="text-sm font-semibold">
-                            ${selectedProduct.price}
-                          </p>
-                          <Button
-                            size="sm"
-                            className="mt-1 bg-white text-black hover:bg-white/90"
-                            onClick={() =>
-                              selectedProduct &&
-                              actions.addToCart(selectedProduct)
-                            }
-                          >
-                            <ShoppingBag className="w-3 h-3 mr-1" />
-                            Add to Cart
-                          </Button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Product Information Watermark */}
+                  {previewImage && selectedProduct && (
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="bg-black/80 backdrop-blur-sm text-white p-4 rounded-lg border border-white/20">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                              <Sparkles className="w-5 h-5" />
+                            </div>
+                            <div>
+                              <p className="text-sm font-semibold">
+                                {selectedProduct.name}
+                              </p>
+                              <p className="text-xs opacity-90">
+                                {selectedProduct.brand} • Virtual Try-On by
+                                TrySpace AI
+                              </p>
+                              <div className="flex items-center gap-1 mt-1">
+                                <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                                <span className="text-xs">
+                                  {selectedProduct.rating}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <p className="text-lg font-bold">
+                              ${selectedProduct.price}
+                            </p>
+                            <Button
+                              size="sm"
+                              className="mt-2 bg-white text-black hover:bg-white/90 font-medium"
+                              onClick={() =>
+                                selectedProduct &&
+                                actions.addToCart(selectedProduct)
+                              }
+                            >
+                              <ShoppingBag className="w-3 h-3 mr-1" />
+                              Add to Cart
+                            </Button>
+                          </div>
                         </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Corner Brand Watermark */}
+                  {previewImage && (
+                    <div className="absolute bottom-4 right-4">
+                      <div className="bg-white/95 backdrop-blur-sm px-2 py-1 rounded text-xs">
+                        <span className="font-bold text-primary">
+                          TrySpace.ai
+                        </span>
                       </div>
                     </div>
                   )}
