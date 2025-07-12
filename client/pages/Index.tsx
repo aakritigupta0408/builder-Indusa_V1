@@ -367,19 +367,6 @@ export default function Index() {
                       </span>
                     </div>
 
-                    <div className="bg-card rounded-lg p-4 border">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-foreground">
-                          See furniture in your space
-                        </span>
-                        <div className="flex gap-1">
-                          <div className="w-2 h-2 bg-success rounded-full"></div>
-                          <div className="w-2 h-2 bg-success rounded-full opacity-60"></div>
-                          <div className="w-2 h-2 bg-success rounded-full opacity-30"></div>
-                        </div>
-                      </div>
-                    </div>
-
                     <Button
                       variant="outline"
                       className="w-full group-hover:bg-accent/10 border-2 transition-colors"
