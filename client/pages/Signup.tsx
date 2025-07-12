@@ -25,6 +25,8 @@ export default function Signup() {
     confirmPassword: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -40,8 +42,18 @@ export default function Signup() {
     // Simulate signup process
     setTimeout(() => {
       setIsLoading(false);
-      // Add actual authentication logic here
-      console.log("Email signup:", formData);
+
+      // Mock user data
+      const userData = {
+        id: "user_" + Date.now(),
+        name: formData.name,
+        email: formData.email,
+        provider: "email" as const,
+        avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(formData.name)}&background=random`,
+      };
+
+      login(userData);
+      navigate("/dashboard");
     }, 1000);
   };
 
@@ -51,8 +63,18 @@ export default function Signup() {
     // Simulate social signup process
     setTimeout(() => {
       setIsLoading(false);
-      // Add actual social authentication logic here
-      console.log(`${provider} signup initiated`);
+
+      // Mock user data for social signup
+      const userData = {
+        id: provider + "_" + Date.now(),
+        name: `User from ${provider}`,
+        email: `user@${provider}.com`,
+        provider: provider as any,
+        avatar: `https://ui-avatars.com/api/?name=User&background=random`,
+      };
+
+      login(userData);
+      navigate("/dashboard");
     }, 1000);
   };
 
