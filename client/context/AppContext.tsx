@@ -115,6 +115,10 @@ function appReducer(state: AppState, action: AppAction): AppState {
       };
     case "SET_FILTERED_PRODUCTS":
       return { ...state, filteredProducts: action.payload };
+    case "SET_SEARCH_QUERY":
+      return { ...state, searchQuery: action.payload };
+    case "SET_SEARCH_RESULTS":
+      return { ...state, searchResults: action.payload };
     case "SET_USER":
       return { ...state, user: action.payload, isGuest: !action.payload };
     case "SET_GUEST_MODE":
