@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Star, Filter, X } from "lucide-react";
+import { Heart, Star, Filter, X, ShoppingBag } from "lucide-react";
 import { allProducts, searchProducts } from "@/data/products";
 import { useApp, useAppActions } from "@/context/AppContext";
 
