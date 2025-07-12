@@ -115,7 +115,7 @@ export default function AISizing() {
 
   const removePhoto = (photoId: string) => {
     setUploadedPhotos((prev) => prev.filter((photo) => photo.id !== photoId));
-    setShowResults(false);
+    aiSizing.reset();
   };
 
   const startProcessing = async () => {
