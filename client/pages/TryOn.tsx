@@ -360,6 +360,37 @@ export default function TryOn() {
         </div>
       </div>
 
+      {/* Guest Limitation Banner */}
+      {state.isGuest && (
+        <div className="bg-warning/10 border-l-4 border-warning p-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="text-warning text-lg">⚠️</div>
+              <div>
+                <p className="font-medium text-foreground">
+                  Try-on feature requires an account
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Sign up to unlock virtual try-on and AI-powered features
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <Link to="/signup">
+                <Button size="sm" className="h-8">
+                  Sign Up
+                </Button>
+              </Link>
+              <Link to="/login">
+                <Button size="sm" variant="outline" className="h-8">
+                  Login
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-col lg:flex-row h-[calc(100vh-140px)]">
         {/* Left Panel - 60% - Photo Preview */}
         <div className="w-full lg:w-3/5 p-6 bg-neutral/30">
