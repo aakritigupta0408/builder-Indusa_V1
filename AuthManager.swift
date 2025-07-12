@@ -6,11 +6,13 @@ class AuthManager: ObservableObject {
     @Published var currentUser: User?
     @Published var isLoading = false
     @Published var errorMessage: String?
+    @Published var hasSeenIntroduction = false
     
     private var cancellables = Set<AnyCancellable>()
     
     init() {
         checkAuthenticationStatus()
+        loadIntroductionStatus()
     }
     
     func signIn(email: String, password: String) {
@@ -57,6 +59,11 @@ class AuthManager: ObservableObject {
         clearAuthenticationState()
     }
     
+    func skipIntroduction() {
+        hasSeenIntroduction = true
+        saveIntroductionStatus()
+    }
+    
     private func checkAuthenticationStatus() {
         // Check if user is already authenticated
         if let userData = UserDefaults.standard.data(forKey: "current_user"),
@@ -64,6 +71,14 @@ class AuthManager: ObservableObject {
             currentUser = user
             isAuthenticated = true
         }
+    }
+    
+    private func loadIntroductionStatus() {
+        hasSeenIntroduction = UserDefaults.standard.bool(forKey: "has_seen_introduction")
+    }
+    
+    private func saveIntroductionStatus() {
+        UserDefaults.standard.set(hasSeenIntroduction, forKey: "has_seen_introduction")
     }
     
     private func saveAuthenticationState() {
