@@ -20,6 +20,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,8 +30,17 @@ export default function Login() {
     // Simulate login process
     setTimeout(() => {
       setIsLoading(false);
-      // Add actual authentication logic here
-      console.log("Email login:", { email, password });
+
+      // Mock user data
+      const userData = {
+        id: "user_" + Date.now(),
+        name: email.split("@")[0],
+        email: email,
+        provider: "email" as const,
+      };
+
+      login(userData);
+      navigate("/dashboard");
     }, 1000);
   };
 
@@ -39,8 +50,18 @@ export default function Login() {
     // Simulate social login process
     setTimeout(() => {
       setIsLoading(false);
-      // Add actual social authentication logic here
-      console.log(`${provider} login initiated`);
+
+      // Mock user data for social login
+      const userData = {
+        id: provider + "_" + Date.now(),
+        name: `User from ${provider}`,
+        email: `user@${provider}.com`,
+        provider: provider as any,
+        avatar: `https://ui-avatars.com/api/?name=User&background=random`,
+      };
+
+      login(userData);
+      navigate("/dashboard");
     }, 1000);
   };
 
