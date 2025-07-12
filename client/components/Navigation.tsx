@@ -48,9 +48,20 @@ export default function Navigation() {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/catalog", label: "Shop" },
-    { path: "/try-on", label: "Try-On", icon: Sparkles },
-    { path: "/ai-sizing", label: "AI Sizing" },
+    {
+      path: "/catalog?category=clothing",
+      label: "Shop Apparel",
+      badge: "👗",
+      description: "Clothes & Fashion",
+    },
+    {
+      path: "/catalog?category=decor",
+      label: "Shop Home Decor",
+      badge: "🏠",
+      description: "Furniture & Decor",
+    },
+    { path: "/try-on", label: "Try-On", icon: Sparkles, badge: "✨" },
+    { path: "/ai-sizing", label: "AI Sizing", badge: "📏" },
   ];
 
   // Search functionality
