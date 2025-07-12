@@ -14,6 +14,13 @@ export interface Designer {
   };
   featuredIn?: string[];
   totalProducts: number;
+  customClothes?: {
+    available: boolean;
+    startingPrice: number;
+    deliveryTime: string;
+    description: string;
+    categories: string[];
+  };
 }
 
 export const designers: Designer[] = [
@@ -34,6 +41,14 @@ export const designers: Designer[] = [
     },
     featuredIn: ["Vogue", "Harper's Bazaar", "Elle"],
     totalProducts: 15,
+    customClothes: {
+      available: true,
+      startingPrice: 199,
+      deliveryTime: "3-4 weeks",
+      description:
+        "Custom tailored pieces designed by ZARA's in-house designers to your exact specifications.",
+      categories: ["Dresses", "Blazers", "Trousers", "Shirts", "Skirts"],
+    },
   },
   {
     id: 2,
@@ -52,6 +67,14 @@ export const designers: Designer[] = [
     },
     featuredIn: ["Fashion Week", "Sustainability Awards"],
     totalProducts: 12,
+    customClothes: {
+      available: true,
+      startingPrice: 149,
+      deliveryTime: "2-3 weeks",
+      description:
+        "Sustainable custom clothing made from eco-friendly materials with H&M's conscious design philosophy.",
+      categories: ["T-Shirts", "Hoodies", "Jeans", "Jackets", "Dresses"],
+    },
   },
   {
     id: 3,
@@ -70,6 +93,20 @@ export const designers: Designer[] = [
     },
     featuredIn: ["Tech Fashion", "Innovation Awards"],
     totalProducts: 18,
+    customClothes: {
+      available: true,
+      startingPrice: 99,
+      deliveryTime: "1-2 weeks",
+      description:
+        "Custom basics using UNIQLO's innovative fabric technology for the perfect fit and comfort.",
+      categories: [
+        "Basics",
+        "Underwear",
+        "Activewear",
+        "Casual Wear",
+        "Work Wear",
+      ],
+    },
   },
   {
     id: 4,
