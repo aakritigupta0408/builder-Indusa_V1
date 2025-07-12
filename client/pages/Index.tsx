@@ -24,6 +24,7 @@ import {
   Shield,
   Truck,
   RefreshCw,
+  ShoppingBag,
 } from "lucide-react";
 import { IndusaLogo } from "@/components/IndusaLogo";
 
