@@ -228,10 +228,24 @@ export const useAppActions = () => {
       dispatch({ type: "SET_SELECTED_PRODUCT", payload: product }),
     setProcessing: (processing: boolean) =>
       dispatch({ type: "SET_PROCESSING", payload: processing }),
-    addToCart: (product: Product) =>
-      dispatch({ type: "ADD_TO_CART", payload: product }),
+    addToCart: (
+      product: Product,
+      quantity?: number,
+      selectedSize?: string,
+      selectedColor?: string,
+    ) =>
+      dispatch({
+        type: "ADD_TO_CART",
+        payload: { product, quantity, selectedSize, selectedColor },
+      }),
     removeFromCart: (productId: number) =>
       dispatch({ type: "REMOVE_FROM_CART", payload: productId }),
+    updateCartQuantity: (productId: number, quantity: number) =>
+      dispatch({
+        type: "UPDATE_CART_QUANTITY",
+        payload: { productId, quantity },
+      }),
+    clearCart: () => dispatch({ type: "CLEAR_CART" }),
     addToWishlist: (product: Product) =>
       dispatch({ type: "ADD_TO_WISHLIST", payload: product }),
     removeFromWishlist: (productId: number) =>
