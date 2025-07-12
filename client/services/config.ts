@@ -156,16 +156,16 @@ export function validateServiceConfig(
 // Environment setup helper
 export function getEnvironmentInfo() {
   return {
-    nodeEnv: process.env.NODE_ENV,
+    nodeEnv: getEnvVar("NODE_ENV") || "development",
     activeProviders: DEFAULT_ACTIVE_PROVIDERS,
     availableProviders: Object.values(ServiceProvider),
     configuredKeys: {
-      kling: !!process.env.REACT_APP_KLING_API_KEY,
-      replicate: !!process.env.REACT_APP_REPLICATE_API_KEY,
-      reimagineHome: !!process.env.REACT_APP_REIMAGINE_API_KEY,
-      modsy: !!process.env.REACT_APP_MODSY_API_KEY,
-      threeDLook: !!process.env.REACT_APP_3DLOOK_API_KEY,
-      bodyLabs: !!process.env.REACT_APP_BODYLABS_API_KEY,
+      kling: !!getEnvVar("VITE_KLING_API_KEY"),
+      replicate: !!getEnvVar("VITE_REPLICATE_API_KEY"),
+      reimagineHome: !!getEnvVar("VITE_REIMAGINE_API_KEY"),
+      modsy: !!getEnvVar("VITE_MODSY_API_KEY"),
+      threeDLook: !!getEnvVar("VITE_3DLOOK_API_KEY"),
+      bodyLabs: !!getEnvVar("VITE_BODYLABS_API_KEY"),
     },
   };
 }
