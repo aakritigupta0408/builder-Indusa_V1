@@ -270,75 +270,176 @@ export default function Index() {
       </section>
 
       {/* Category Tiles */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Shop by Category
-            </h2>
-            <p className="text-muted-foreground">
-              Discover our curated collections
+      <section className="py-20 bg-black relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-cyan-400 to-green-400 rounded-full blur-3xl opacity-15 animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full blur-2xl opacity-25 animate-bounce"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="text-4xl">🔥</span>
+              <h2 className="text-4xl md:text-6xl font-black text-white">
+                SHOP BY
+                <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent ml-4">
+                  CATEGORY
+                </span>
+              </h2>
+              <span className="text-4xl">🔥</span>
+            </div>
+            <p className="text-xl text-white/80 font-bold">
+              Pick your vibe! What's your mood today? ✨
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            {/* Apparel Category */}
             <Link to="/catalog?category=clothing" className="group">
-              <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-cyan-400/10 hover:from-pink-500/20 hover:via-purple-500/20 hover:to-cyan-400/20">
-                <div className="relative h-72 p-6">
-                  <div className="absolute top-4 right-4">
-                    <span className="text-4xl">👗</span>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-                      <ShirtIcon className="w-10 h-10 text-white" />
+              <div className="relative bg-gradient-to-br from-pink-500 via-purple-600 to-pink-700 rounded-3xl p-8 overflow-hidden transform group-hover:scale-105 transition-all duration-500 shadow-2xl border-4 border-white/20">
+                {/* Background pattern */}
+                <div
+                  className={
+                    'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="60" height="60" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="dots" width="60" height="60" patternUnits="userSpaceOnUse"%3E%3Ccircle cx="30" cy="30" r="2" fill="white" opacity="0.1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23dots)" /%3E%3C/svg%3E\')] opacity-30'
+                  }
+                ></div>
+
+                {/* Floating elements */}
+                <div className="absolute top-4 right-4 text-6xl animate-bounce">
+                  👗
+                </div>
+                <div className="absolute top-8 left-8 text-3xl animate-pulse delay-500">
+                  ✨
+                </div>
+                <div className="absolute bottom-8 right-12 text-2xl animate-ping delay-1000">
+                  💫
+                </div>
+
+                <div className="relative z-10 h-80 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+                      <span className="text-white font-black text-sm">
+                        TRENDING NOW
+                      </span>
+                      <TrendingUp className="w-4 h-4 text-white" />
                     </div>
+
+                    <h3 className="text-4xl md:text-5xl font-black text-white leading-tight">
+                      SHOP
+                      <br />
+                      <span className="bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">
+                        APPAREL
+                      </span>
+                    </h3>
                   </div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="space-y-3">
-                      <h3 className="text-2xl font-black bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-                        SHOP APPAREL
-                      </h3>
-                      <p className="text-muted-foreground font-medium">
-                        ✨ Try on the latest fashion pieces with AI
-                      </p>
-                      <div className="flex items-center gap-2 text-sm font-bold text-primary">
-                        <span>Virtual Try-On Available</span>
-                        <Sparkles className="w-4 h-4" />
+
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                        <ShirtIcon className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="text-white font-bold text-lg">
+                        AI Try-On Ready
+                      </span>
+                    </div>
+
+                    <p className="text-white/90 font-medium text-lg">
+                      🌟 See how clothes look on YOU before buying! From
+                      streetwear to formal - we got your fits!
+                    </p>
+
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+                      <div className="flex items-center justify-between">
+                        <span className="text-white font-black text-sm">
+                          VIRTUAL TRY-ON
+                        </span>
+                        <Sparkles className="w-5 h-5 text-yellow-300 animate-pulse" />
                       </div>
                     </div>
                   </div>
                 </div>
-              </Card>
+              </div>
             </Link>
 
+            {/* Home Decor Category */}
             <Link to="/catalog?category=decor" className="group">
-              <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-400/10 hover:from-emerald-500/20 hover:via-teal-500/20 hover:to-cyan-400/20">
-                <div className="relative h-72 p-6">
-                  <div className="absolute top-4 right-4">
-                    <span className="text-4xl">🏠</span>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg">
-                      <Home className="w-10 h-10 text-white" />
+              <div className="relative bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-700 rounded-3xl p-8 overflow-hidden transform group-hover:scale-105 transition-all duration-500 shadow-2xl border-4 border-white/20">
+                {/* Background pattern */}
+                <div
+                  className={
+                    'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="40" height="40" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="squares" width="40" height="40" patternUnits="userSpaceOnUse"%3E%3Crect x="0" y="0" width="20" height="20" fill="white" opacity="0.05"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23squares)" /%3E%3C/svg%3E\')] opacity-40'
+                  }
+                ></div>
+
+                {/* Floating elements */}
+                <div className="absolute top-4 right-4 text-6xl animate-bounce delay-300">
+                  🏠
+                </div>
+                <div className="absolute top-8 left-8 text-3xl animate-pulse delay-700">
+                  🪴
+                </div>
+                <div className="absolute bottom-8 right-12 text-2xl animate-ping delay-500">
+                  🛋️
+                </div>
+
+                <div className="relative z-10 h-80 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+                      <span className="text-white font-black text-sm">
+                        ROOM GOALS
+                      </span>
+                      <Home className="w-4 h-4 text-white" />
                     </div>
+
+                    <h3 className="text-4xl md:text-5xl font-black text-white leading-tight">
+                      SHOP
+                      <br />
+                      <span className="bg-gradient-to-r from-cyan-300 to-green-300 bg-clip-text text-transparent">
+                        HOME DECOR
+                      </span>
+                    </h3>
                   </div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="space-y-3">
-                      <h3 className="text-2xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                        SHOP HOME DECOR
-                      </h3>
-                      <p className="text-muted-foreground font-medium">
-                        🏡 Visualize furniture in your space
-                      </p>
-                      <div className="flex items-center gap-2 text-sm font-bold text-primary">
-                        <span>Room Visualization Ready</span>
-                        <Home className="w-4 h-4" />
+
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                        <Home className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="text-white font-bold text-lg">
+                        Room Visualization
+                      </span>
+                    </div>
+
+                    <p className="text-white/90 font-medium text-lg">
+                      🏡 Transform your space! Visualize furniture in YOUR room
+                      before you buy. Make it aesthetic!
+                    </p>
+
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+                      <div className="flex items-center justify-between">
+                        <span className="text-white font-black text-sm">
+                          AR PLACEMENT
+                        </span>
+                        <div className="flex gap-1">
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse delay-100"></div>
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse delay-200"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </Card>
+              </div>
             </Link>
+          </div>
+
+          {/* Bottom decorative text */}
+          <div className="text-center mt-16">
+            <p className="text-white/60 font-bold text-lg">
+              💎 Choose your adventure and start shopping! 💎
+            </p>
           </div>
         </div>
       </section>
