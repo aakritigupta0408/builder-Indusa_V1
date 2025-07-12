@@ -109,12 +109,20 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        {/* Logo - Enhanced Design */}
+        {/* Logo - Enhanced Design with Mascot */}
         <Link to="/" className="flex items-center space-x-4 group">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 p-2 rounded-2xl border border-primary/20">
-              <IndusaLogo size="lg" />
+            <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 p-2 rounded-2xl border border-primary/20 transition-all duration-300 group-hover:scale-110">
+              <div className="relative">
+                <IndusaLogo
+                  size="lg"
+                  className="transition-opacity duration-300 group-hover:opacity-0"
+                />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <IndusaLogo size="lg" variant="mascot" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="flex flex-col justify-center">
