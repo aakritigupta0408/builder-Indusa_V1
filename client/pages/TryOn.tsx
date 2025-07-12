@@ -203,7 +203,7 @@ export default function TryOn() {
       try {
         await navigator.share({
           title: `Check out this ${tryMode} try-on!`,
-          text: `I tried on ${selectedProduct?.name} using TrySpace AI!`,
+          text: `I tried on ${selectedProduct?.name} using Indusa AI!`,
           url: window.location.href,
         });
       } catch (error) {
