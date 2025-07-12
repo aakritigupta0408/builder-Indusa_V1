@@ -526,28 +526,86 @@ export default function ProductPage() {
                     </div>
                   )}
 
-                  {/* Product Overlay Info */}
+                  {/* Brand Watermark */}
                   {previewImage && (
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="bg-black/80 text-white p-3 rounded-lg">
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <p className="font-medium">{product.name}</p>
-                            <p className="text-xs opacity-90">
-                              {product.brand} • Tried with TrySpace AI
+                    <div className="absolute top-4 right-4">
+                      <div className="bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border">
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-gradient-to-br from-primary to-luxury rounded flex items-center justify-center">
+                            <Sparkles className="h-3 w-3 text-white" />
+                          </div>
+                          <div className="text-xs">
+                            <p className="font-bold text-foreground">
+                              TrySpace
+                            </p>
+                            <p className="text-muted-foreground leading-none">
+                              AI Try-On
                             </p>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Product Information Watermark */}
+                  {previewImage && (
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="bg-black/80 backdrop-blur-sm text-white p-4 rounded-lg border border-white/20">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                              <Sparkles className="w-5 h-5" />
+                            </div>
+                            <div>
+                              <p className="text-sm font-semibold">
+                                {product.name}
+                              </p>
+                              <p className="text-xs opacity-90">
+                                {product.brand} • Virtual Try-On by TrySpace AI
+                              </p>
+                              <div className="flex items-center gap-1 mt-1">
+                                <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                                <span className="text-xs">
+                                  {product.rating}
+                                </span>
+                                {product.reviews && (
+                                  <span className="text-xs opacity-75">
+                                    ({product.reviews})
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                          </div>
                           <div className="text-right">
-                            <p className="font-semibold">${product.price}</p>
+                            <p className="text-lg font-bold">
+                              ${product.price}
+                            </p>
+                            {product.originalPrice && (
+                              <p className="text-xs line-through opacity-75">
+                                ${product.originalPrice}
+                              </p>
+                            )}
                             <Button
                               size="sm"
-                              className="mt-1 bg-white text-black hover:bg-white/90"
+                              className="mt-2 bg-white text-black hover:bg-white/90 font-medium"
                               onClick={handleAddToCart}
                             >
+                              <ShoppingBag className="w-3 h-3 mr-1" />
                               Add to Cart
                             </Button>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Corner Brand Watermark */}
+                  {previewImage && (
+                    <div className="absolute bottom-4 right-4">
+                      <div className="bg-white/95 backdrop-blur-sm px-2 py-1 rounded text-xs">
+                        <span className="font-bold text-primary">
+                          TrySpace.ai
+                        </span>
                       </div>
                     </div>
                   )}
