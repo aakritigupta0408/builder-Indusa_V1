@@ -571,50 +571,127 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Why Shop With Us */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Why Shop With Indusa
+      {/* Why Shop With Us - Gen-Z Interactive Design */}
+      <section className="py-20 bg-gradient-to-br from-background via-primary/5 to-accent/10 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-full blur-2xl animate-bounce"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-2 mb-6">
+              <Sparkles className="w-4 h-4" />
+              <span className="text-sm font-medium">Why Choose Us</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+              Why Shop With{" "}
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Indusa
+              </span>
             </h2>
-            <p className="text-muted-foreground">
-              Experience the future of online shopping
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              We're not just another online store. We're your AI-powered fashion
+              bestie that gets you! ✨
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center p-6 border-0 shadow-sm">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Sparkles className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">AI-Powered Try-On</h3>
-              <p className="text-muted-foreground">
-                See how clothes look on you and furniture in your space with our
-                advanced AI technology.
-              </p>
+          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* AI-Powered Try-On */}
+            <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-primary/5 to-primary/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CardContent className="p-8 relative z-10">
+                <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Sparkles className="w-8 h-8 text-primary animate-pulse" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-center">
+                  AI-Powered Try-On
+                </h3>
+                <p className="text-muted-foreground text-center mb-4">
+                  See how clothes look on YOU before buying! No more guessing,
+                  no more returns.
+                </p>
+                <div className="flex justify-center">
+                  <Badge className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+                    🔥 Most Popular
+                  </Badge>
+                </div>
+              </CardContent>
             </Card>
 
-            <Card className="text-center p-6 border-0 shadow-sm">
-              <div className="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <RefreshCw className="w-6 h-6 text-success" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Easy Returns</h3>
-              <p className="text-muted-foreground">
-                60% fewer returns thanks to our try-on technology. Free returns
-                within 30 days.
-              </p>
+            {/* Smart Sizing */}
+            <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-success/5 to-success/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-success/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CardContent className="p-8 relative z-10">
+                <div className="w-16 h-16 bg-success/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <RefreshCw className="w-8 h-8 text-success" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-center">
+                  Smart Sizing
+                </h3>
+                <p className="text-muted-foreground text-center mb-4">
+                  AI analyzes your measurements for the perfect fit every time.
+                  Say goodbye to size confusion!
+                </p>
+                <div className="flex justify-center">
+                  <Badge className="bg-success/10 text-success hover:bg-success/20 transition-colors">
+                    🎯 Perfect Fit
+                  </Badge>
+                </div>
+              </CardContent>
             </Card>
 
-            <Card className="text-center p-6 border-0 shadow-sm">
-              <div className="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Truck className="w-6 h-6 text-warning" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Fast Shipping</h3>
-              <p className="text-muted-foreground">
-                Free shipping on orders over $75. Express delivery available.
-              </p>
+            {/* Instant Delivery */}
+            <Card className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-gradient-to-br from-warning/5 to-warning/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-warning/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <CardContent className="p-8 relative z-10">
+                <div className="w-16 h-16 bg-warning/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Truck className="w-8 h-8 text-warning" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-center">
+                  Lightning Fast
+                </h3>
+                <p className="text-muted-foreground text-center mb-4">
+                  Free shipping on orders over $75. Same-day delivery in select
+                  cities. We're FAST!
+                </p>
+                <div className="flex justify-center">
+                  <Badge className="bg-warning/10 text-warning hover:bg-warning/20 transition-colors">
+                    ⚡ Super Fast
+                  </Badge>
+                </div>
+              </CardContent>
             </Card>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <p className="text-lg text-muted-foreground mb-6">
+              Ready to revolutionize your shopping experience?
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/catalog">
+                <Button
+                  size="lg"
+                  className="px-8 py-6 text-lg font-semibold bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity"
+                >
+                  Start Shopping
+                  <TrendingUp className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/try-on">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="px-8 py-6 text-lg font-semibold border-2 hover:bg-primary/5"
+                >
+                  Try Virtual Try-On
+                  <Sparkles className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
