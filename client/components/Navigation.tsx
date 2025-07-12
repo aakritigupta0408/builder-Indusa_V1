@@ -50,18 +50,16 @@ export default function Navigation() {
     { path: "/", label: "Home" },
     {
       path: "/catalog?category=clothing",
-      label: "Shop Apparel",
-      badge: "👗",
-      description: "Clothes & Fashion",
+      label: "Apparel",
+      description: "Clothing & Fashion",
     },
     {
       path: "/catalog?category=decor",
-      label: "Shop Home Decor",
-      badge: "🏠",
-      description: "Furniture & Decor",
+      label: "Home Decor",
+      description: "Furniture & Accessories",
     },
-    { path: "/try-on", label: "Try-On", icon: Sparkles, badge: "✨" },
-    { path: "/ai-sizing", label: "AI Sizing", badge: "📏" },
+    { path: "/try-on", label: "Virtual Try-On", icon: Sparkles },
+    { path: "/ai-sizing", label: "AI Sizing" },
   ];
 
   // Search functionality
