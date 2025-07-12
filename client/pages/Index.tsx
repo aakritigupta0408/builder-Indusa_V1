@@ -73,8 +73,11 @@ const featuredProducts = [
   },
 ];
 
+import { useAppActions } from "@/context/AppContext";
+
 export default function Index() {
   const navigate = useNavigate();
+  const actions = useAppActions();
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
