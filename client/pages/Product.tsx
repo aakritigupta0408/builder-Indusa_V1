@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { useApp, useAppActions, Product } from "@/context/AppContext";
 import { allProducts } from "@/data/products";
+import { IndusaIcon } from "@/components/IndusaLogo";
 
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
