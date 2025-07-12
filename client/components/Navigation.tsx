@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { useApp, useAppActions } from "@/context/AppContext";
 import { searchProducts } from "@/data/products";
+import { IndusaLogo } from "./IndusaLogo";
 
 export default function Navigation() {
   const { state } = useApp();
@@ -279,7 +280,7 @@ export default function Navigation() {
                             {product.name}
                           </p>
                           <p className="text-xs text-muted-foreground">
-                            {product.brand} • {product.color}
+                            {product.brand} ��� {product.color}
                           </p>
                           <p className="text-sm font-semibold text-primary">
                             ${product.price}
