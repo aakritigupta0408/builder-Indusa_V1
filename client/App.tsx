@@ -20,6 +20,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Designers from "./pages/Designers";
 import Designer from "./pages/Designer";
+import Wardrobe from "./pages/Wardrobe";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
