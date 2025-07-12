@@ -240,9 +240,6 @@ export default function Navigation() {
                         : "text-muted-foreground hover:text-primary hover:bg-gradient-to-r hover:from-pink-500/10 hover:to-purple-500/10"
                     }`}
                   >
-                    {item.badge && (
-                      <span className="text-lg">{item.badge}</span>
-                    )}
                     {item.icon && <item.icon className="h-4 w-4" />}
                     <div className="flex flex-col">
                       <span className="leading-none">{item.label}</span>
@@ -390,7 +387,7 @@ export default function Navigation() {
                       }}
                       className="flex items-center gap-2"
                     >
-                      <span>✨</span>
+                      <span>��</span>
                       <div>
                         <p className="font-medium">Virtual Try-On</p>
                         <p className="text-xs text-muted-foreground">
