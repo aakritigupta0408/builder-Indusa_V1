@@ -127,16 +127,18 @@ export function CartSidebar({ children }: CartSidebarProps) {
                       <p className="text-xs text-muted-foreground">
                         {item.product.brand}
                       </p>
-                      {item.selectedSize && (
-                        <p className="text-xs text-muted-foreground">
-                          Size: {item.selectedSize}
-                        </p>
-                      )}
-                      {item.selectedColor && (
-                        <p className="text-xs text-muted-foreground">
-                          Color: {item.selectedColor}
-                        </p>
-                      )}
+                      <div className="flex flex-wrap gap-1 text-xs text-muted-foreground">
+                        {item.selectedSize && (
+                          <span className="bg-muted px-2 py-1 rounded">
+                            Size: {item.selectedSize}
+                          </span>
+                        )}
+                        {item.selectedColor && (
+                          <span className="bg-muted px-2 py-1 rounded">
+                            Color: {item.selectedColor}
+                          </span>
+                        )}
+                      </div>
                       <div className="flex items-center justify-between mt-2">
                         <div className="flex items-center gap-2">
                           <Button
