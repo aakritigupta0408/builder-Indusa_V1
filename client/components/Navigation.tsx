@@ -64,6 +64,11 @@ export default function Navigation() {
       label: "Home Decor",
       description: "Furniture & Accessories",
     },
+    {
+      path: "/designers",
+      label: "Shop by Designer",
+      description: "Designer Stores",
+    },
     { path: "/try-on", label: "Virtual Try-On", icon: Sparkles },
     { path: "/ai-sizing", label: "AI Sizing" },
   ];
