@@ -10,67 +10,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Star, Filter } from "lucide-react";
-
-// Mock product data
-const mockProducts = [
-  {
-    id: 1,
-    name: "Oversized Blazer",
-    price: 129,
-    originalPrice: 189,
-    category: "clothing",
-    color: "black",
-    size: ["XS", "S", "M", "L", "XL"],
-    material: "wool",
-    rating: 4.5,
-    reviews: 128,
-    image: "/placeholder.svg",
-    isNew: true,
-    onSale: true,
-  },
-  {
-    id: 2,
-    name: "Minimalist Sofa",
-    price: 899,
-    originalPrice: 1299,
-    category: "decor",
-    color: "beige",
-    material: "fabric",
-    rating: 4.8,
-    reviews: 89,
-    image: "/placeholder.svg",
-    isNew: false,
-    onSale: true,
-  },
-  {
-    id: 3,
-    name: "Silk Midi Dress",
-    price: 245,
-    category: "clothing",
-    color: "navy",
-    size: ["XS", "S", "M", "L"],
-    material: "silk",
-    rating: 4.7,
-    reviews: 203,
-    image: "/placeholder.svg",
-    isNew: true,
-    onSale: false,
-  },
-  {
-    id: 4,
-    name: "Modern Floor Lamp",
-    price: 159,
-    category: "decor",
-    color: "gold",
-    material: "metal",
-    rating: 4.3,
-    reviews: 67,
-    image: "/placeholder.svg",
-    isNew: false,
-    onSale: false,
-  },
-];
+import { Heart, Star, Filter, X } from "lucide-react";
+import { allProducts, searchProducts } from "@/data/products";
+import { useApp, useAppActions } from "@/context/AppContext";
 
 const categories = ["all", "clothing", "decor"];
 const colors = ["all", "black", "navy", "beige", "gold"];
