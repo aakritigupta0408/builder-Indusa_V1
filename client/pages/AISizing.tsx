@@ -151,8 +151,7 @@ export default function AISizing() {
 
   const resetAnalysis = () => {
     setUploadedPhotos([]);
-    setShowResults(false);
-    setProcessingProgress(0);
+    aiSizing.reset();
     setSelectedMeasurement(null);
   };
 
