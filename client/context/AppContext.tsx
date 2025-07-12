@@ -18,6 +18,13 @@ export interface Product {
   onSale?: boolean;
 }
 
+export interface CartItem {
+  product: Product;
+  quantity: number;
+  selectedSize?: string;
+  selectedColor?: string;
+}
+
 export interface AppState {
   // Try-on state
   previewImage: string | null;
