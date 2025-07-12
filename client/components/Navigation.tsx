@@ -24,6 +24,7 @@ export default function Navigation() {
     { path: "/", label: "Home" },
     { path: "/catalog", label: "Shop" },
     { path: "/try-on", label: "Try-On", icon: Sparkles },
+    { path: "/ai-sizing", label: "AI Sizing" },
   ];
 
   return (
