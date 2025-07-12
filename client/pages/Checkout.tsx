@@ -449,30 +449,88 @@ export default function Checkout() {
               </CardHeader>
               <CardContent className="space-y-4">
                 {/* Cart Items */}
-                <div className="space-y-3">
-                  {state.cart.map((item) => (
+                <div className="space-y-4">
+                  {state.cart.map((item, index) => (
                     <div
-                      key={`${item.product.id}-${item.selectedSize}`}
-                      className="flex gap-3"
+                      key={`${item.product.id}-${item.selectedSize}-${item.selectedColor}`}
+                      className="border rounded-lg p-3"
                     >
-                      <div className="w-12 h-12 bg-neutral rounded-lg overflow-hidden flex-shrink-0">
-                        <img
-                          src={item.product.image}
-                          alt={item.product.name}
-                          className="w-full h-full object-cover"
-                        />
+                      <div className="flex gap-3 mb-3">
+                        <div className="w-12 h-12 bg-neutral rounded-lg overflow-hidden flex-shrink-0">
+                          <img
+                            src={item.product.image}
+                            alt={item.product.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-sm line-clamp-1">
+                            {item.product.name}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            Qty: {item.quantity}
+                          </p>
+                          <p className="text-sm font-semibold">
+                            {formatPrice(item.product.price * item.quantity)}
+                          </p>
+                        </div>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium text-sm line-clamp-1">
-                          {item.product.name}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          Qty: {item.quantity}
-                          {item.selectedSize && ` • Size: ${item.selectedSize}`}
-                        </p>
-                        <p className="text-sm font-semibold">
-                          {formatPrice(item.product.price * item.quantity)}
-                        </p>
+
+                      {/* Item Options */}
+                      <div className="space-y-2">
+                        {item.selectedSize && (
+                          <div className="flex items-center justify-between text-xs">
+                            <span className="text-muted-foreground">Size:</span>
+                            <span className="bg-muted px-2 py-1 rounded">
+                              {item.selectedSize}
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Color Selection */}
+                        {item.product.availableColors &&
+                        item.product.availableColors.length > 1 ? (
+                          <div className="space-y-1">
+                            <span className="text-xs text-muted-foreground">
+                              Color:
+                            </span>
+                            <div className="flex flex-wrap gap-1">
+                              {item.product.availableColors.map((color) => (
+                                <button
+                                  key={color}
+                                  onClick={() => {
+                                    // Remove old item and add new one with different color
+                                    actions.removeFromCart(item.product.id);
+                                    actions.addToCart(
+                                      item.product,
+                                      item.quantity,
+                                      item.selectedSize,
+                                      color,
+                                    );
+                                  }}
+                                  className={`px-2 py-1 rounded text-xs border transition-all ${
+                                    item.selectedColor === color
+                                      ? "border-primary bg-primary/10 text-primary font-medium"
+                                      : "border-muted hover:border-muted-foreground text-muted-foreground"
+                                  }`}
+                                >
+                                  {color}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        ) : (
+                          item.selectedColor && (
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="text-muted-foreground">
+                                Color:
+                              </span>
+                              <span className="bg-muted px-2 py-1 rounded">
+                                {item.selectedColor}
+                              </span>
+                            </div>
+                          )
+                        )}
                       </div>
                     </div>
                   ))}
