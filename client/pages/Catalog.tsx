@@ -86,7 +86,13 @@ export default function Catalog() {
       default:
         return filtered.sort((a, b) => b.rating - a.rating);
     }
-  }, [selectedCategory, selectedColor, selectedMaterial, sortBy]);
+  }, [
+    selectedCategory,
+    selectedSubcategory,
+    selectedColor,
+    selectedMaterial,
+    sortBy,
+  ]);
 
   const handleTryOn = (product: any) => {
     // This would integrate with try-on functionality
