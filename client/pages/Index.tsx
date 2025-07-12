@@ -330,6 +330,10 @@ export default function Index() {
                       <Button
                         size="sm"
                         className="bg-white text-black hover:bg-white/90"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate("/try-on");
+                        }}
                       >
                         {product.category === "clothing"
                           ? "Try On"
@@ -339,6 +343,10 @@ export default function Index() {
                         size="icon"
                         variant="secondary"
                         className="bg-white/90 hover:bg-white h-8 w-8"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          // Add to wishlist functionality would go here
+                        }}
                       >
                         <Heart className="h-4 w-4" />
                       </Button>
