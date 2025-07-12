@@ -55,6 +55,7 @@ export default function ProductPage() {
       const foundProduct = allProducts.find((p) => p.id === parseInt(id));
       if (foundProduct) {
         setProduct(foundProduct);
+        setSelectedColor(foundProduct.color); // Set default color
         setIsWishlisted(
           state.wishlist.some((item) => item.id === foundProduct.id),
         );
