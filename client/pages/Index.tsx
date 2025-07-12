@@ -25,6 +25,7 @@ import {
   Truck,
   RefreshCw,
 } from "lucide-react";
+import { IndusaLogo } from "@/components/IndusaLogo";
 
 // Mock featured products
 const featuredProducts = [
