@@ -254,36 +254,58 @@ export default function Index() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Link to="/catalog?category=clothing" className="group">
-              <Card className="overflow-hidden hover:shadow-lg transition-all duration-300">
-                <div className="relative h-64 bg-gradient-to-br from-primary/10 to-luxury/10">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <ShirtIcon className="w-16 h-16 text-primary" />
+              <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-cyan-400/10 hover:from-pink-500/20 hover:via-purple-500/20 hover:to-cyan-400/20">
+                <div className="relative h-72 p-6">
+                  <div className="absolute top-4 right-4">
+                    <span className="text-4xl">👗</span>
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-2xl font-bold text-foreground mb-2">
-                      Clothing
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Try on our latest fashion pieces with AI
-                    </p>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                      <ShirtIcon className="w-10 h-10 text-white" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="space-y-3">
+                      <h3 className="text-2xl font-black bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+                        SHOP APPAREL
+                      </h3>
+                      <p className="text-muted-foreground font-medium">
+                        ✨ Try on the latest fashion pieces with AI
+                      </p>
+                      <div className="flex items-center gap-2 text-sm font-bold text-primary">
+                        <span>Virtual Try-On Available</span>
+                        <Sparkles className="w-4 h-4" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Card>
             </Link>
 
             <Link to="/catalog?category=decor" className="group">
-              <Card className="overflow-hidden hover:shadow-lg transition-all duration-300">
-                <div className="relative h-64 bg-gradient-to-br from-success/10 to-warning/10">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Home className="w-16 h-16 text-success" />
+              <Card className="overflow-hidden hover:shadow-xl transition-all duration-500 border-0 bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-400/10 hover:from-emerald-500/20 hover:via-teal-500/20 hover:to-cyan-400/20">
+                <div className="relative h-72 p-6">
+                  <div className="absolute top-4 right-4">
+                    <span className="text-4xl">🏠</span>
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-2xl font-bold text-foreground mb-2">
-                      Home Decor
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Visualize furniture in your space
-                    </p>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg">
+                      <Home className="w-10 h-10 text-white" />
+                    </div>
+                  </div>
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="space-y-3">
+                      <h3 className="text-2xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                        SHOP HOME DECOR
+                      </h3>
+                      <p className="text-muted-foreground font-medium">
+                        🏡 Visualize furniture in your space
+                      </p>
+                      <div className="flex items-center gap-2 text-sm font-bold text-primary">
+                        <span>Room Visualization Ready</span>
+                        <Home className="w-4 h-4" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </Card>
