@@ -657,20 +657,49 @@ export default function TryOn() {
       <Dialog open={showSignupPrompt} onOpenChange={setShowSignupPrompt}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Sign up to save your looks</DialogTitle>
+            <DialogTitle>Sign up to unlock virtual try-on</DialogTitle>
             <DialogDescription>
-              Create an account to save your try-on results and build your
-              personal style collection.
+              Create an account to use our AI-powered virtual try-on feature and
+              save your looks.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 pt-4">
-            <Button className="w-full" size="lg">
-              <User className="w-4 h-4 mr-2" />
-              Sign Up Free
-            </Button>
-            <Button variant="outline" className="w-full">
+            <Link to="/signup" className="w-full">
+              <Button className="w-full" size="lg">
+                <User className="w-4 h-4 mr-2" />
+                Sign Up Free
+              </Button>
+            </Link>
+
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-muted" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">
+                  or
+                </span>
+              </div>
+            </div>
+
+            <Button
+              variant="outline"
+              className="w-full"
+              onClick={() => {
+                actions.setGuestMode(true);
+                setShowSignupPrompt(false);
+              }}
+            >
               Continue as Guest
             </Button>
+
+            <div className="bg-muted/50 rounded-lg p-3 border">
+              <p className="text-xs text-muted-foreground text-center">
+                ⚠️ <strong>Guest limitation:</strong> Virtual try-on feature
+                requires an account. As a guest, you can browse products but
+                cannot use the AI try-on technology.
+              </p>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
