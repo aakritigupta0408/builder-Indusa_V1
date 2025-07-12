@@ -553,12 +553,34 @@ export default function AISizing() {
                   </CardHeader>
                   <CardContent>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      {[
-                        { brand: "Zara", size: "M", confidence: "95%" },
-                        { brand: "H&M", size: "L", confidence: "92%" },
-                        { brand: "Uniqlo", size: "M", confidence: "97%" },
-                        { brand: "Nike", size: "L", confidence: "89%" },
-                      ].map((rec) => (
+                      {(
+                        aiSizing.result?.sizeRecommendations || [
+                          {
+                            brand: "Zara",
+                            size: "M",
+                            confidence: 0.95,
+                            fitType: "regular" as const,
+                          },
+                          {
+                            brand: "H&M",
+                            size: "L",
+                            confidence: 0.92,
+                            fitType: "regular" as const,
+                          },
+                          {
+                            brand: "Uniqlo",
+                            size: "M",
+                            confidence: 0.97,
+                            fitType: "regular" as const,
+                          },
+                          {
+                            brand: "Nike",
+                            size: "L",
+                            confidence: 0.89,
+                            fitType: "regular" as const,
+                          },
+                        ]
+                      ).map((rec) => (
                         <div
                           key={rec.brand}
                           className="text-center p-3 border rounded-lg"
@@ -568,7 +590,7 @@ export default function AISizing() {
                             {rec.size}
                           </p>
                           <p className="text-xs text-muted-foreground">
-                            {rec.confidence} match
+                            {Math.round(rec.confidence * 100)}% match
                           </p>
                         </div>
                       ))}
