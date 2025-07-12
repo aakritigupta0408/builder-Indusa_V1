@@ -31,6 +31,8 @@ export interface AppState {
   cart: Product[];
   wishlist: Product[];
   filteredProducts: Product[];
+  searchQuery: string;
+  searchResults: Product[];
 
   // User state
   isGuest: boolean;
