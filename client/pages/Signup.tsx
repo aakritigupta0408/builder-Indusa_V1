@@ -350,6 +350,40 @@ export default function Signup() {
                 </Button>
               </form>
 
+              {/* Guest Option */}
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <Separator className="w-full" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-card px-2 text-muted-foreground">
+                    Or continue without account
+                  </span>
+                </div>
+              </div>
+
+              <Link to="/" className="w-full">
+                <Button variant="outline" className="w-full h-12">
+                  Continue as Guest
+                </Button>
+              </Link>
+
+              <div className="bg-muted/50 rounded-lg p-4 border">
+                <div className="flex items-start gap-3">
+                  <div className="text-warning text-lg">⚠️</div>
+                  <div>
+                    <p className="font-medium text-sm text-foreground mb-1">
+                      Guest limitations
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      As a guest, you can browse products but cannot use virtual
+                      try-on, AI sizing, save looks, or access personalized
+                      recommendations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* Sign In Link */}
               <div className="text-center">
                 <p className="text-sm text-muted-foreground">
