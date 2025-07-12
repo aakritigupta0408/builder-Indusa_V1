@@ -412,7 +412,7 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Why Shop With TrySpace
+              Why Shop With Indusa
             </h2>
             <p className="text-muted-foreground">
               Experience the future of online shopping
