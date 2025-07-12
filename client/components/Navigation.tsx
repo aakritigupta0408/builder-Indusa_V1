@@ -1,6 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import {
   Sheet,
   SheetContent,
@@ -8,8 +10,26 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet";
-import { Search, ShoppingBag, Heart, User, Menu, Sparkles } from "lucide-react";
-import { useApp } from "@/context/AppContext";
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import {
+  Search,
+  ShoppingBag,
+  Heart,
+  User,
+  Menu,
+  Sparkles,
+  X,
+} from "lucide-react";
+import { useApp, useAppActions } from "@/context/AppContext";
+import { searchProducts } from "@/data/products";
 
 export default function Navigation() {
   const { state } = useApp();
