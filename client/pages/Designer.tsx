@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -25,6 +31,10 @@ import {
   Filter,
   TrendingUp,
   Award,
+  Scissors,
+  Clock,
+  DollarSign,
+  Palette,
 } from "lucide-react";
 import { designers, type Designer } from "@/data/designers";
 import { allProducts } from "@/data/products";
@@ -281,6 +291,168 @@ export default function Designer() {
           </div>
         </div>
       </section>
+
+      {/* Custom Clothes Section */}
+      {designer.customClothes?.available && (
+        <section className="py-8 bg-gradient-to-br from-primary/5 via-purple-50/50 to-cyan-50/30 border-b">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-primary via-purple-600 to-cyan-600 bg-clip-text text-transparent">
+                  Custom Clothes Creation
+                </h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Work directly with {designer.name}'s design team to create a
+                  unique piece tailored just for you
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <Card className="text-center">
+                  <CardContent className="pt-6">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <DollarSign className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="font-semibold mb-2">Starting at</h3>
+                    <p className="text-2xl font-bold text-primary">
+                      ${designer.customClothes.startingPrice}
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center">
+                  <CardContent className="pt-6">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Clock className="h-6 w-6 text-purple-600" />
+                    </div>
+                    <h3 className="font-semibold mb-2">Delivery Time</h3>
+                    <p className="text-lg font-medium">
+                      {designer.customClothes.deliveryTime}
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="text-center">
+                  <CardContent className="pt-6">
+                    <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Scissors className="h-6 w-6 text-cyan-600" />
+                    </div>
+                    <h3 className="font-semibold mb-2">Categories</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {designer.customClothes.categories.length} options
+                      available
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Palette className="h-5 w-5" />
+                    About Custom Creation
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-6">
+                    {designer.customClothes.description}
+                  </p>
+
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3">
+                      Available Categories:
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {designer.customClothes.categories.map((category) => (
+                        <Badge
+                          key={category}
+                          variant="outline"
+                          className="bg-background"
+                        >
+                          {category}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold mb-3">Process:</h4>
+                      <div className="space-y-2 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                            1
+                          </div>
+                          <span>Submit your design requirements</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                            2
+                          </div>
+                          <span>Designer consultation & measurements</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                            3
+                          </div>
+                          <span>Creation & quality check</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                            4
+                          </div>
+                          <span>Delivery to your door</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold mb-3">What's Included:</h4>
+                      <div className="space-y-2 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span>Personal design consultation</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span>Premium materials selection</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span>Expert tailoring & craftsmanship</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span>Final fitting adjustments</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span>Care instructions & warranty</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Separator className="my-6" />
+
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button
+                      size="lg"
+                      className="bg-gradient-to-r from-primary via-purple-600 to-cyan-600 hover:from-primary/90 hover:via-purple-600/90 hover:to-cyan-600/90"
+                    >
+                      <Scissors className="h-4 w-4 mr-2" />
+                      Start Custom Design
+                    </Button>
+                    <Button size="lg" variant="outline">
+                      View Portfolio & Examples
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Products Section */}
       <section className="py-8">
