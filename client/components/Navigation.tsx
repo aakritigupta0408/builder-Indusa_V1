@@ -336,30 +336,51 @@ export default function Navigation() {
                   </CommandGroup>
                 )}
                 {!searchQuery && (
-                  <CommandGroup heading="Quick Actions">
+                  <CommandGroup heading="✨ Quick Actions">
                     <CommandItem
                       onSelect={() => {
                         navigate("/catalog?category=clothing");
                         setIsSearchOpen(false);
                       }}
+                      className="flex items-center gap-2"
                     >
-                      Browse Clothing
+                      <span>👗</span>
+                      <div>
+                        <p className="font-medium">Shop Apparel</p>
+                        <p className="text-xs text-muted-foreground">
+                          Clothes & Fashion
+                        </p>
+                      </div>
                     </CommandItem>
                     <CommandItem
                       onSelect={() => {
                         navigate("/catalog?category=decor");
                         setIsSearchOpen(false);
                       }}
+                      className="flex items-center gap-2"
                     >
-                      Browse Home Decor
+                      <span>🏠</span>
+                      <div>
+                        <p className="font-medium">Shop Home Decor</p>
+                        <p className="text-xs text-muted-foreground">
+                          Furniture & Decor
+                        </p>
+                      </div>
                     </CommandItem>
                     <CommandItem
                       onSelect={() => {
                         navigate("/try-on");
                         setIsSearchOpen(false);
                       }}
+                      className="flex items-center gap-2"
                     >
-                      Try Virtual Try-On
+                      <span>✨</span>
+                      <div>
+                        <p className="font-medium">Virtual Try-On</p>
+                        <p className="text-xs text-muted-foreground">
+                          AI-Powered Experience
+                        </p>
+                      </div>
                     </CommandItem>
                   </CommandGroup>
                 )}
