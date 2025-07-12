@@ -31,6 +31,7 @@ import {
 import { useApp, useAppActions, Product } from "@/context/AppContext";
 import { allProducts } from "@/data/products";
 import { IndusaIcon } from "@/components/IndusaLogo";
+import { InstagramShare } from "@/components/InstagramShare";
 
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
