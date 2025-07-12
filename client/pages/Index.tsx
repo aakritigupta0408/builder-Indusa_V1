@@ -545,69 +545,68 @@ export default function Index() {
         </div>
       </section>
 
-      {/* AI Sizing Banner */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-bounce"></div>
-          <div className="absolute bottom-10 right-10 w-16 h-16 bg-yellow-300/20 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-cyan-300/15 rounded-full animate-ping"></div>
-          <div className="absolute top-20 right-20 w-12 h-12 bg-green-300/20 rounded-full animate-bounce delay-500"></div>
-        </div>
-
-        <div className="relative z-10 container mx-auto px-4 text-center">
+      {/* AI Sizing Feature */}
+      <section className="py-20 bg-gradient-to-br from-primary via-primary/90 to-primary text-primary-foreground">
+        <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            {/* Icon with enhanced styling */}
-            <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl border-4 border-white/30">
-              <Sparkles className="w-10 h-10 text-white animate-pulse" />
+            {/* Icon */}
+            <div className="w-16 h-16 bg-primary-foreground/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Sparkles className="w-8 h-8 text-primary-foreground" />
             </div>
 
-            {/* Main headline with better visibility */}
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight drop-shadow-2xl">
-              GET YOUR
-              <span className="bg-gradient-to-r from-yellow-300 via-white to-cyan-300 bg-clip-text text-transparent">
-                {" "}
-                PERFECT FIT
-              </span>
+            {/* Headline */}
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+              Get Your Perfect Fit
               <br />
-              FROM A SINGLE PHOTO! 📸
+              <span className="text-primary-foreground/80">
+                From a Single Photo
+              </span>
             </h2>
 
-            {/* Enhanced description */}
-            <p className="text-xl md:text-2xl text-white font-bold mb-8 drop-shadow-lg max-w-3xl mx-auto leading-relaxed">
-              💫 Our AI technology analyzes your body shape and suggests the
-              perfect size for any garment!
-              <span className="text-yellow-300 font-black">
-                {" "}
-                No more returns, no more guessing!{" "}
-              </span>
-              Reducing returns by up to 60%. 🎯
+            {/* Description */}
+            <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-primary-foreground/90">
+              Our AI technology analyzes your body measurements and suggests the
+              perfect size for any garment, reducing returns and ensuring the
+              best fit every time.
             </p>
 
-            {/* Enhanced CTA button */}
+            {/* CTA Button */}
             <Link to="/ai-sizing">
               <Button
                 size="lg"
-                className="text-xl px-12 py-8 font-black bg-white text-black hover:bg-yellow-300 shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-black"
+                variant="secondary"
+                className="px-8 py-6 text-lg font-semibold hover:bg-secondary/90 transition-colors"
               >
-                📏 TRY AI SIZING NOW
-                <Sparkles className="ml-3 h-6 w-6" />
+                Try AI Sizing
+                <Sparkles className="ml-2 h-5 w-5" />
               </Button>
             </Link>
 
-            {/* Additional trust elements */}
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-white/90 font-bold">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                <span>🎯</span>
-                <span>99% Accuracy</span>
+            {/* Trust indicators */}
+            <div className="mt-12 grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary-foreground mb-1">
+                  99%
+                </div>
+                <div className="text-sm text-primary-foreground/80">
+                  Accuracy Rate
+                </div>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                <span>⚡</span>
-                <span>Instant Results</span>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary-foreground mb-1">
+                  60%
+                </div>
+                <div className="text-sm text-primary-foreground/80">
+                  Fewer Returns
+                </div>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                <span>💎</span>
-                <span>Used by 1M+ People</span>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary-foreground mb-1">
+                  1M+
+                </div>
+                <div className="text-sm text-primary-foreground/80">
+                  Happy Customers
+                </div>
               </div>
             </div>
           </div>
