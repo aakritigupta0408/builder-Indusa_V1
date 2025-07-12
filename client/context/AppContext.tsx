@@ -181,6 +181,10 @@ export const useAppActions = () => {
       dispatch({ type: "REMOVE_FROM_WISHLIST", payload: productId }),
     setFilteredProducts: (products: Product[]) =>
       dispatch({ type: "SET_FILTERED_PRODUCTS", payload: products }),
+    setSearchQuery: (query: string) =>
+      dispatch({ type: "SET_SEARCH_QUERY", payload: query }),
+    setSearchResults: (results: Product[]) =>
+      dispatch({ type: "SET_SEARCH_RESULTS", payload: results }),
     setUser: (user: AppState["user"]) =>
       dispatch({ type: "SET_USER", payload: user }),
     setGuestMode: (isGuest: boolean) =>
