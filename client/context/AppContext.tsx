@@ -114,15 +114,52 @@ function appReducer(state: AppState, action: AppAction): AppState {
     case "SET_PROCESSING":
       return { ...state, isProcessing: action.payload };
     case "ADD_TO_CART":
-      if (state.cart.find((item) => item.id === action.payload.id)) {
-        return state; // Item already in cart
+      const {
+        product,
+        quantity = 1,
+        selectedSize,
+        selectedColor,
+      } = action.payload;
+      const existingItemIndex = state.cart.findIndex(
+        (item) =>
+          item.product.id === product.id &&
+          item.selectedSize === selectedSize &&
+          item.selectedColor === selectedColor,
+      );
+
+      if (existingItemIndex >= 0) {
+        // Update quantity of existing item
+        const updatedCart = [...state.cart];
+        updatedCart[existingItemIndex].quantity += quantity;
+        return { ...state, cart: updatedCart };
+      } else {
+        // Add new item to cart
+        const newCartItem: CartItem = {
+          product,
+          quantity,
+          selectedSize,
+          selectedColor,
+        };
+        return { ...state, cart: [...state.cart, newCartItem] };
       }
-      return { ...state, cart: [...state.cart, action.payload] };
     case "REMOVE_FROM_CART":
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload),
+        cart: state.cart.filter((item) => item.product.id !== action.payload),
       };
+    case "UPDATE_CART_QUANTITY":
+      return {
+        ...state,
+        cart: state.cart
+          .map((item) =>
+            item.product.id === action.payload.productId
+              ? { ...item, quantity: action.payload.quantity }
+              : item,
+          )
+          .filter((item) => item.quantity > 0), // Remove items with 0 quantity
+      };
+    case "CLEAR_CART":
+      return { ...state, cart: [] };
     case "ADD_TO_WISHLIST":
       if (state.wishlist.find((item) => item.id === action.payload.id)) {
         return state; // Item already in wishlist
