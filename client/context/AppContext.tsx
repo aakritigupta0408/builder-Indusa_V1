@@ -56,6 +56,8 @@ type AppAction =
   | { type: "ADD_TO_WISHLIST"; payload: Product }
   | { type: "REMOVE_FROM_WISHLIST"; payload: number }
   | { type: "SET_FILTERED_PRODUCTS"; payload: Product[] }
+  | { type: "SET_SEARCH_QUERY"; payload: string }
+  | { type: "SET_SEARCH_RESULTS"; payload: Product[] }
   | { type: "SET_USER"; payload: AppState["user"] }
   | { type: "SET_GUEST_MODE"; payload: boolean };
 
