@@ -18,12 +18,23 @@ export enum ServiceProvider {
   MOCK_SIZING = "mock-sizing",
 }
 
+// Get environment variables (Vite uses import.meta.env)
+const getEnvVar = (key: string): string | undefined => {
+  // In Vite, environment variables are accessed via import.meta.env
+  // and must be prefixed with VITE_ to be available in the browser
+  if (typeof import.meta !== "undefined" && import.meta.env) {
+    return import.meta.env[key];
+  }
+  // Fallback for other environments
+  return undefined;
+};
+
 // Configuration for each service provider
 export const SERVICE_CONFIGS: Record<ServiceProvider, ServiceConfig> = {
   // Clothing Try-On Services
   [ServiceProvider.KLING]: {
-    baseUrl: process.env.REACT_APP_KLING_API_URL || "https://api.kling.ai",
-    apiKey: process.env.REACT_APP_KLING_API_KEY,
+    baseUrl: getEnvVar("VITE_KLING_API_URL") || "https://api.kling.ai",
+    apiKey: getEnvVar("VITE_KLING_API_KEY"),
     timeout: 30000,
     retryAttempts: 3,
     enableLogging: true,
@@ -32,9 +43,8 @@ export const SERVICE_CONFIGS: Record<ServiceProvider, ServiceConfig> = {
     },
   },
   [ServiceProvider.REPLICATE_TRYON]: {
-    baseUrl:
-      process.env.REACT_APP_REPLICATE_API_URL || "https://api.replicate.com",
-    apiKey: process.env.REACT_APP_REPLICATE_API_KEY,
+    baseUrl: getEnvVar("VITE_REPLICATE_API_URL") || "https://api.replicate.com",
+    apiKey: getEnvVar("VITE_REPLICATE_API_KEY"),
     timeout: 45000,
     retryAttempts: 2,
     enableLogging: true,
@@ -48,15 +58,15 @@ export const SERVICE_CONFIGS: Record<ServiceProvider, ServiceConfig> = {
   // Decor Visualization Services
   [ServiceProvider.REIMAGINE_HOME]: {
     baseUrl:
-      process.env.REACT_APP_REIMAGINE_API_URL || "https://api.reimaginehome.ai",
-    apiKey: process.env.REACT_APP_REIMAGINE_API_KEY,
+      getEnvVar("VITE_REIMAGINE_API_URL") || "https://api.reimaginehome.ai",
+    apiKey: getEnvVar("VITE_REIMAGINE_API_KEY"),
     timeout: 40000,
     retryAttempts: 3,
     enableLogging: true,
   },
   [ServiceProvider.MODSY]: {
-    baseUrl: process.env.REACT_APP_MODSY_API_URL || "https://api.modsy.com",
-    apiKey: process.env.REACT_APP_MODSY_API_KEY,
+    baseUrl: getEnvVar("VITE_MODSY_API_URL") || "https://api.modsy.com",
+    apiKey: getEnvVar("VITE_MODSY_API_KEY"),
     timeout: 35000,
     retryAttempts: 2,
     enableLogging: true,
@@ -69,19 +79,18 @@ export const SERVICE_CONFIGS: Record<ServiceProvider, ServiceConfig> = {
 
   // AI Sizing Services
   [ServiceProvider.THREE_D_LOOK]: {
-    baseUrl: process.env.REACT_APP_3DLOOK_API_URL || "https://api.3dlook.me",
-    apiKey: process.env.REACT_APP_3DLOOK_API_KEY,
+    baseUrl: getEnvVar("VITE_3DLOOK_API_URL") || "https://api.3dlook.me",
+    apiKey: getEnvVar("VITE_3DLOOK_API_KEY"),
     timeout: 60000,
     retryAttempts: 3,
     enableLogging: true,
     customHeaders: {
-      Authorization: `Bearer ${process.env.REACT_APP_3DLOOK_API_KEY}`,
+      Authorization: `Bearer ${getEnvVar("VITE_3DLOOK_API_KEY")}`,
     },
   },
   [ServiceProvider.BODYLABS]: {
-    baseUrl:
-      process.env.REACT_APP_BODYLABS_API_URL || "https://api.bodylabs.com",
-    apiKey: process.env.REACT_APP_BODYLABS_API_KEY,
+    baseUrl: getEnvVar("VITE_BODYLABS_API_URL") || "https://api.bodylabs.com",
+    apiKey: getEnvVar("VITE_BODYLABS_API_KEY"),
     timeout: 50000,
     retryAttempts: 2,
     enableLogging: true,
