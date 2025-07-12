@@ -44,7 +44,10 @@ export default function Navigation() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const cartCount = state.cart.length;
+  const cartCount = state.cart.reduce(
+    (count, item) => count + item.quantity,
+    0,
+  );
   const wishlistCount = state.wishlist.length;
 
   const isActive = (path: string) => location.pathname === path;
