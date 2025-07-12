@@ -1,8 +1,10 @@
 import React from "react";
+import { BrandMascot } from "./BrandMascot";
 
 interface IndusaLogoProps {
   size?: "sm" | "md" | "lg";
   className?: string;
+  variant?: "logo" | "mascot";
 }
 
 export const IndusaLogo: React.FC<IndusaLogoProps> = ({
