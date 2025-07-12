@@ -56,16 +56,6 @@ export default function Navigation() {
   const navItems = [
     { path: "/", label: "Home" },
     {
-      path: "/catalog?category=clothing",
-      label: "Apparel",
-      description: "Clothing & Fashion",
-    },
-    {
-      path: "/catalog?category=decor",
-      label: "Home Decor",
-      description: "Furniture & Accessories",
-    },
-    {
       path: "/designers",
       label: "Shop by Designer",
       description: "Designer Stores",
