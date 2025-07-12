@@ -98,7 +98,7 @@ export default function ProductPage() {
       return; // Show error for missing size
     }
 
-    actions.addToCart(product, quantity, selectedSize, product.color);
+    actions.addToCart(product, quantity, selectedSize, selectedColor);
   };
 
   const handleToggleWishlist = () => {
