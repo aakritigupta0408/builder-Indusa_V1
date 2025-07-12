@@ -153,15 +153,11 @@ export default function Navigation() {
           </div>
         </Link>
 
-        {/* Desktop Navigation - Enhanced with MegaMenu */}
+                {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center flex-1 justify-center">
-          {/* MegaMenu for Categories */}
-          <div className="flex items-center space-x-6">
-            <MegaMenu isActive={isActive} />
-
-            {/* Regular Nav Items */}
-            <nav className="flex items-center space-x-6">
-              {navItems.map((item) => (
+          {/* Nav Items */}
+          <nav className="flex items-center space-x-6">
+            {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
