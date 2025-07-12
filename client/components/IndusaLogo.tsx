@@ -10,12 +10,18 @@ interface IndusaLogoProps {
 export const IndusaLogo: React.FC<IndusaLogoProps> = ({
   size = "md",
   className = "",
+  variant = "logo",
 }) => {
   const sizeClasses = {
     sm: "w-4 h-4",
     md: "w-6 h-6",
     lg: "w-8 h-8",
   };
+
+  // Return mascot if variant is mascot
+  if (variant === "mascot") {
+    return <BrandMascot size={size} className={className} />;
+  }
 
   return (
     <div className={`${sizeClasses[size]} ${className} relative`}>
