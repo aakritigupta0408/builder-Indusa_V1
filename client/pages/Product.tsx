@@ -530,14 +530,12 @@ export default function ProductPage() {
                   {/* Brand Watermark */}
                   {previewImage && (
                     <div className="absolute top-4 right-4">
-                      <div className="bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border">
+                      <div className="bg-white/95 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg border">
                         <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 bg-gradient-to-br from-primary to-luxury rounded flex items-center justify-center">
-                            <Sparkles className="h-3 w-3 text-white" />
-                          </div>
+                          <IndusaIcon className="w-5 h-5" />
                           <div className="text-xs">
-                            <p className="font-bold text-foreground">
-                              TrySpace
+                            <p className="font-bold bg-gradient-to-r from-pink-500 via-orange-400 to-pink-600 bg-clip-text text-transparent">
+                              Indusa
                             </p>
                             <p className="text-muted-foreground leading-none">
                               AI Try-On
