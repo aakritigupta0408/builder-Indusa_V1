@@ -136,14 +136,19 @@ export default function TryOn() {
   const [showSignupPrompt, setShowSignupPrompt] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const {
-    tryMode,
-    userPhoto,
-    roomPhoto,
-    previewImage,
-    selectedProduct,
-    isProcessing,
-  } = state;
+  // Service hooks
+  const clothingTryOn = useClothingTryOn();
+  const decorVisualization = useDecorVisualization();
+  const fileUpload = useFileUpload();
+
+  const { tryMode, userPhoto, roomPhoto, previewImage, selectedProduct } =
+    state;
+
+  // Use service processing state instead of local state
+  const isProcessing =
+    tryMode === "clothes"
+      ? clothingTryOn.isProcessing
+      : decorVisualization.isProcessing;
 
   const currentPhoto = tryMode === "clothes" ? userPhoto : roomPhoto;
   const currentProducts =
