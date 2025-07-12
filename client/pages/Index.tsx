@@ -135,24 +135,23 @@ export default function Index() {
               </span>
               🔥✨
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/catalog">
                 <Button
                   size="lg"
-                  className="text-lg px-8 py-6 font-black bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 shadow-lg"
+                  className="text-xl px-12 py-8 font-black bg-white text-black hover:bg-yellow-300 shadow-2xl transform hover:scale-105 transition-all duration-300 border-4 border-black"
                 >
                   🛍️ SHOP NOW
-                  <TrendingUp className="ml-2 h-5 w-5" />
+                  <TrendingUp className="ml-3 h-6 w-6" />
                 </Button>
               </Link>
               <Link to="/try-on">
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="text-lg px-8 py-6 font-black border-2 border-primary hover:bg-gradient-to-r hover:from-pink-500/10 hover:to-purple-500/10"
+                  className="text-xl px-12 py-8 font-black bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-400 hover:to-purple-500 shadow-2xl transform hover:scale-105 transition-all duration-300 border-4 border-white"
                 >
                   ✨ START TRY-ON
-                  <Sparkles className="ml-2 h-5 w-5" />
+                  <Sparkles className="ml-3 h-6 w-6" />
                 </Button>
               </Link>
             </div>
