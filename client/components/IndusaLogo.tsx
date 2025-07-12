@@ -122,26 +122,49 @@ export const IndusaIcon: React.FC<{ className?: string }> = ({
       className={className}
     >
       <defs>
-        <linearGradient id="indusaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FF69B4" />
-          <stop offset="50%" stopColor="#FFD700" />
-          <stop offset="100%" stopColor="#FF1493" />
+        <linearGradient
+          id="genZIconGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#FF0080" />
+          <stop offset="33%" stopColor="#FFFF00" />
+          <stop offset="66%" stopColor="#00FFFF" />
+          <stop offset="100%" stopColor="#FF00FF" />
         </linearGradient>
+        <filter id="iconGlow">
+          <feGaussianBlur stdDeviation="1" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
       </defs>
 
-      {/* Simplified version for icons */}
-      <path
-        d="M12 2 C6 2, 2 8, 2 12 C2 16, 6 22, 12 22 C18 22, 22 16, 22 12 C22 8, 18 2, 12 2 Z"
-        fill="url(#indusaGradient)"
-        opacity="0.9"
+      {/* Simplified geometric version */}
+      <rect
+        x="4"
+        y="4"
+        width="16"
+        height="16"
+        rx="8"
+        fill="url(#genZIconGradient)"
+        transform="rotate(45 12 12)"
+        filter="url(#iconGlow)"
       />
 
-      <path
-        d="M12 16 C10 14, 8 12, 8 10 C8 9, 9 8, 10 8.5 C11 9, 12 9.5, 12 9.5 C12 9.5, 13 9, 14 8.5 C15 8, 16 9, 16 10 C16 12, 14 14, 12 16 Z"
-        fill="white"
-      />
+      {/* Bold I */}
+      <rect x="10.5" y="7" width="3" height="10" rx="1.5" fill="white" />
+      <rect x="8.5" y="7" width="7" height="2" rx="1" fill="white" />
+      <rect x="8.5" y="15" width="7" height="2" rx="1" fill="white" />
 
-      <circle cx="12" cy="6" r="1" fill="#FFD700" />
+      {/* Neon sparkles */}
+      <circle cx="6" cy="6" r="1" fill="#FFFF00" />
+      <circle cx="18" cy="6" r="0.8" fill="#FF00FF" />
+      <circle cx="6" cy="18" r="0.8" fill="#00FFFF" />
+      <circle cx="18" cy="18" r="1" fill="#FF0080" />
     </svg>
   );
 };
