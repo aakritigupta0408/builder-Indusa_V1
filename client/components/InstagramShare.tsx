@@ -118,6 +118,8 @@ export function InstagramShare({
     );
   });
 
+  TriggerButton.displayName = "TriggerButton";
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
