@@ -459,16 +459,14 @@ export default function Index() {
       <footer className="bg-secondary py-12">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-luxury rounded-lg flex items-center justify-center">
-                <Sparkles className="h-4 w-4 text-white" />
-              </div>
-              <span className="text-xl font-bold text-foreground">
-                TrySpace
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <IndusaLogo size="lg" />
+              <span className="text-xl font-bold bg-gradient-to-r from-pink-500 via-orange-400 to-pink-600 bg-clip-text text-transparent">
+                Indusa
               </span>
             </div>
             <p className="text-muted-foreground">
-              © 2024 TrySpace. The future of shopping is here.
+              © 2024 Indusa. Where tradition meets innovation.
             </p>
           </div>
         </div>
