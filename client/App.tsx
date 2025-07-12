@@ -18,6 +18,8 @@ import Dashboard from "./pages/Dashboard";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Designers from "./pages/Designers";
+import Designer from "./pages/Designer";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
