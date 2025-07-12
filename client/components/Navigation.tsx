@@ -213,19 +213,29 @@ export default function Navigation() {
               <SheetDescription className="text-left mb-6">
                 Navigate through our platform
               </SheetDescription>
-              <nav className="flex flex-col space-y-4">
+              <nav className="flex flex-col space-y-3">
                 {navItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary py-2 ${
+                    className={`flex items-center gap-3 text-sm font-bold transition-all duration-300 py-3 px-2 rounded-lg ${
                       isActive(item.path)
-                        ? "text-primary"
-                        : "text-muted-foreground"
+                        ? "bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-cyan-400/20 text-primary border border-primary/30"
+                        : "text-muted-foreground hover:text-primary hover:bg-gradient-to-r hover:from-pink-500/10 hover:to-purple-500/10"
                     }`}
                   >
+                    {item.badge && (
+                      <span className="text-lg">{item.badge}</span>
+                    )}
                     {item.icon && <item.icon className="h-4 w-4" />}
-                    {item.label}
+                    <div className="flex flex-col">
+                      <span className="leading-none">{item.label}</span>
+                      {item.description && (
+                        <span className="text-xs text-muted-foreground/70 leading-none mt-1">
+                          {item.description}
+                        </span>
+                      )}
+                    </div>
                   </Link>
                 ))}
                 <div className="border-t pt-4 mt-6">
