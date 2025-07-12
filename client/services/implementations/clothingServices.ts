@@ -445,6 +445,23 @@ export class ReplicateClothingTryOnService implements IClothingTryOnService {
     }
   }
 
+  private mapReplicateStatus(
+    replicateStatus: string,
+  ): "pending" | "processing" | "completed" | "failed" {
+    switch (replicateStatus) {
+      case "starting":
+        return "pending";
+      case "processing":
+        return "processing";
+      case "succeeded":
+        return "completed";
+      case "failed":
+        return "failed";
+      default:
+        return "pending";
+    }
+  }
+
   private getHeaders(): Record<string, string> {
     return {
       Authorization: `Token ${this.config.apiKey}`,
