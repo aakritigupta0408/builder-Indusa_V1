@@ -403,7 +403,7 @@ export class ReplicateClothingTryOnService implements IClothingTryOnService {
       if (statusResponse.success && statusResponse.data) {
         const status = statusResponse.data.status;
 
-        if (status === "succeeded") {
+        if (status === "completed") {
           const response = await fetch(
             `${this.config.baseUrl}/v1/predictions/${predictionId}`,
             {
