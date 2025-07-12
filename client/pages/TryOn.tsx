@@ -43,6 +43,7 @@ import {
 } from "lucide-react";
 import { IndusaLogo, IndusaIcon } from "@/components/IndusaLogo";
 import { TryOnWatermark } from "@/components/TryOnWatermark";
+import { InstagramShare } from "@/components/InstagramShare";
 
 // Mock products for try-on
 const mockClothingProducts: Product[] = [
