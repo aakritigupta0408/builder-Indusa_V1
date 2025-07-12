@@ -150,13 +150,13 @@ export default function TryOn() {
       reader.onload = (e) => {
         const imageUrl = e.target?.result as string;
         if (tryMode === "clothes") {
-          setUserPhoto(imageUrl);
+          actions.setUserPhoto(imageUrl);
         } else {
-          setRoomPhoto(imageUrl);
+          actions.setRoomPhoto(imageUrl);
         }
         // Clear preview when uploading new photo
-        setPreviewImage(null);
-        setSelectedProduct(null);
+        actions.setPreviewImage(null);
+        actions.setSelectedProduct(null);
       };
       reader.readAsDataURL(file);
     }
