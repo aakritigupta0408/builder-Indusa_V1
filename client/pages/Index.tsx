@@ -119,17 +119,21 @@ export default function Index() {
                 ✨ AI-POWERED VIRTUAL TRY-ON • NO CAP! ✨
               </span>
             </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 leading-tight tracking-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight tracking-tight drop-shadow-2xl">
               TRY BEFORE YOU BUY —{" "}
-              <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-lg">
                 ON YOU. IN YOUR SPACE.
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-medium">
+            <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto font-bold drop-shadow-lg">
               💫 Experience the future of shopping with our AI-powered virtual
               try-on technology. See how clothes look on you and how furniture
-              fits your space before you buy. It's giving main character energy!
-              🔥
+              fits your space before you buy.
+              <span className="text-yellow-300 font-black">
+                {" "}
+                It's giving main character energy!{" "}
+              </span>
+              🔥✨
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/catalog">
