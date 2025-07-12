@@ -37,7 +37,7 @@ import {
 } from "lucide-react";
 
 // Mock products for try-on
-const mockClothingProducts = [
+const mockClothingProducts: Product[] = [
   {
     id: 1,
     name: "Oversized Blazer",
