@@ -27,6 +27,7 @@ import {
   Menu,
   Sparkles,
   X,
+  Shirt,
 } from "lucide-react";
 import { useApp, useAppActions } from "@/context/AppContext";
 import { useAuth } from "@/context/AuthContext";
@@ -59,6 +60,12 @@ export default function Navigation() {
       path: "/designers",
       label: "Shop by Designer",
       description: "Designer Stores",
+    },
+    {
+      path: "/wardrobe",
+      label: "My Wardrobe",
+      icon: Shirt,
+      description: "Personal Collection",
     },
     { path: "/try-on", label: "Virtual Try-On", icon: Sparkles },
     { path: "/ai-sizing", label: "AI Sizing" },
@@ -108,7 +115,7 @@ export default function Navigation() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+      <div className="container mx-auto px-4 h-20 flex items-center gap-8">
         {/* Logo - Enhanced Design with Mascot */}
         <Link to="/" className="flex items-center space-x-4 group">
           <div className="relative">
@@ -136,48 +143,50 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Navigation - Enhanced with MegaMenu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden lg:flex items-center flex-1 justify-center">
           {/* MegaMenu for Categories */}
-          <MegaMenu isActive={isActive} />
+          <div className="flex items-center space-x-6">
+            <MegaMenu isActive={isActive} />
 
-          {/* Regular Nav Items */}
-          <nav className="flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`flex items-center gap-2 font-semibold transition-all duration-300 px-3 py-2 rounded-lg relative group ${
-                  isActive(item.path)
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-primary hover:bg-primary/5"
-                }`}
-              >
-                {item.icon && <item.icon className="h-4 w-4" />}
-                <span className="text-sm">{item.label}</span>
-                <div
-                  className={`absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform transition-transform duration-300 ${
+            {/* Regular Nav Items */}
+            <nav className="flex items-center space-x-6">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`flex items-center gap-2 font-semibold transition-all duration-300 px-3 py-2 rounded-lg relative group whitespace-nowrap ${
                     isActive(item.path)
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100"
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground hover:text-primary hover:bg-primary/5"
                   }`}
-                ></div>
-              </Link>
-            ))}
-          </nav>
+                >
+                  {item.icon && <item.icon className="h-4 w-4" />}
+                  <span className="text-sm">{item.label}</span>
+                  <div
+                    className={`absolute bottom-0 left-0 right-0 h-0.5 bg-primary transform transition-transform duration-300 ${
+                      isActive(item.path)
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  ></div>
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
 
         {/* Right Side Actions */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3 flex-shrink-0">
           {/* Search */}
-          <div className="relative hidden md:flex">
+          <div className="relative hidden lg:flex">
             <Button
               variant="outline"
-              className="relative h-9 w-64 justify-start rounded-md border border-input bg-transparent px-3 py-2 text-sm text-muted-foreground shadow-none hover:bg-accent hover:text-accent-foreground"
+              className="relative h-9 w-48 justify-start rounded-md border border-input bg-transparent px-3 py-2 text-sm text-muted-foreground shadow-none hover:bg-accent hover:text-accent-foreground"
               onClick={() => setIsSearchOpen(true)}
             >
               <Search className="mr-2 h-4 w-4" />
-              <span>Search products...</span>
-              <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+              <span>Search...</span>
+              <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 xl:flex">
                 <span className="text-xs">⌘</span>K
               </kbd>
             </Button>
@@ -186,7 +195,7 @@ export default function Navigation() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="lg:hidden"
             onClick={() => setIsSearchOpen(true)}
           >
             <Search className="h-4 w-4" />
@@ -239,7 +248,7 @@ export default function Navigation() {
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="lg:hidden">
                 <Menu className="h-4 w-4" />
               </Button>
             </SheetTrigger>
