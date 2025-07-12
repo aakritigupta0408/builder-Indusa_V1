@@ -419,6 +419,10 @@ export default function TryOn() {
                           <Button
                             size="sm"
                             className="mt-1 bg-white text-black hover:bg-white/90"
+                            onClick={() =>
+                              selectedProduct &&
+                              actions.addToCart(selectedProduct)
+                            }
                           >
                             <ShoppingBag className="w-3 h-3 mr-1" />
                             Add to Cart
