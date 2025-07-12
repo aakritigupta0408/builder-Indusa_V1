@@ -218,20 +218,33 @@ export default function Catalog() {
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <div className="flex gap-2">
                         <Button
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            actions.addToCart(product, 1);
+                          }}
+                          className="bg-white text-black hover:bg-white/90"
+                        >
+                          <ShoppingBag className="h-3 w-3 mr-1" />
+                          Add to Cart
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
                           onClick={(e) => {
                             e.stopPropagation();
                             handleTryOn(product);
                           }}
-                          className="bg-white text-black hover:bg-white/90"
+                          className="bg-white/90 hover:bg-white"
                         >
                           {product.category === "clothing"
-                            ? "Try On Me"
+                            ? "Try On"
                             : "See in Room"}
                         </Button>
                         <Button
                           size="icon"
                           variant="secondary"
-                          className="bg-white/90 hover:bg-white"
+                          className="bg-white/90 hover:bg-white h-8 w-8"
                           onClick={(e) => {
                             e.stopPropagation();
                             actions.addToWishlist(product);
