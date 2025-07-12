@@ -38,8 +38,27 @@ export default function Catalog() {
   const searchQuery = searchParams.get("search") || "";
   const categoryFromUrl = searchParams.get("category") || "";
 
+  // Initialize filters from URL params
+  useEffect(() => {
+    if (categoryFromUrl && categoryFromUrl !== selectedCategory) {
+      setSelectedCategory(categoryFromUrl);
+    }
+  }, [categoryFromUrl]);
+
+  // Handle search results
+  useEffect(() => {
+    if (searchQuery && searchQuery !== state.searchQuery) {
+      const results = searchProducts(searchQuery, allProducts);
+      actions.setSearchQuery(searchQuery);
+      actions.setSearchResults(results);
+    }
+  }, [searchQuery]);
+
+  const isSearchMode = !!searchQuery;
+  const baseProducts = isSearchMode ? state.searchResults : allProducts;
+
   const filteredAndSortedProducts = useMemo(() => {
-    let filtered = mockProducts.filter((product) => {
+    let filtered = baseProducts.filter((product) => {
       return (
         (selectedCategory === "all" || product.category === selectedCategory) &&
         (selectedColor === "all" || product.color === selectedColor) &&
