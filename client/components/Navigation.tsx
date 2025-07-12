@@ -30,6 +30,8 @@ import {
   Shirt,
   Home,
   Sofa,
+  Tags,
+  Closet,
 } from "lucide-react";
 import { useApp, useAppActions } from "@/context/AppContext";
 import { useAuth } from "@/context/AuthContext";
@@ -61,7 +63,7 @@ export default function Navigation() {
     {
       path: "/catalog?category=clothing",
       label: "Apparel",
-      icon: Shirt,
+      icon: Tags,
       description: "Fashion & Clothing",
     },
     {
