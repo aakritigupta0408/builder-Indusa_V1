@@ -325,15 +325,6 @@ export default function Index() {
                       </span>
                     </div>
 
-                    <div className="bg-card rounded-lg p-4 border">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-foreground">
-                          Available for all clothing items
-                        </span>
-                        <div className="w-2 h-2 bg-success rounded-full"></div>
-                      </div>
-                    </div>
-
                     <Button className="w-full group-hover:bg-primary/90 transition-colors">
                       Browse Apparel
                       <TrendingUp className="ml-2 h-4 w-4" />
