@@ -375,7 +375,7 @@ export default function Index() {
                         <Camera className="w-4 h-4 text-accent-foreground" />
                       </div>
                       <span className="text-sm font-medium text-foreground">
-                        AR Room Visualization
+                        AI Room Visualization
                       </span>
                     </div>
 
