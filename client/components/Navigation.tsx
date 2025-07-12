@@ -116,8 +116,8 @@ export default function Navigation() {
             <span className="text-xl font-bold text-primary tracking-tight">
               Indusa
             </span>
-            <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider -mt-0.5">
-              AI Fashion Platform
+            <span className="text-xs font-medium text-muted-foreground tracking-wider -mt-0.5">
+              Made by Humans. Delivered By AI.
             </span>
           </div>
         </Link>
@@ -387,7 +387,7 @@ export default function Navigation() {
                       }}
                       className="flex items-center gap-2"
                     >
-                      <span>��</span>
+                      <span>✨</span>
                       <div>
                         <p className="font-medium">Virtual Try-On</p>
                         <p className="text-xs text-muted-foreground">
