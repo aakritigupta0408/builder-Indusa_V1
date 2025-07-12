@@ -73,6 +73,7 @@ const featuredProducts = [
 ];
 
 export default function Index() {
+  const navigate = useNavigate();
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
