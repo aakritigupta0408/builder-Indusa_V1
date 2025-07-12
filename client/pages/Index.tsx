@@ -91,69 +91,94 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Gen Z Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-400 via-purple-500 to-cyan-400">
-          {/* Animated shapes */}
-          <div className="absolute top-10 left-10 w-32 h-32 bg-yellow-300/30 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-pink-300/40 rounded-full blur-lg animate-bounce"></div>
-          <div className="absolute bottom-32 left-20 w-40 h-40 bg-cyan-300/25 rounded-full blur-2xl animate-pulse delay-1000"></div>
-          <div className="absolute bottom-20 right-10 w-28 h-28 bg-purple-300/35 rounded-full blur-xl animate-bounce delay-500"></div>
-          <div className="absolute top-1/2 left-1/2 w-36 h-36 bg-green-300/20 rounded-full blur-2xl animate-pulse delay-700"></div>
+      <section className="relative bg-gradient-to-br from-primary/5 via-background to-accent/10 py-20 lg:py-32">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Content */}
+              <div className="space-y-8">
+                <Badge className="inline-flex items-center gap-2 bg-primary/10 text-primary border-primary/20 px-4 py-2">
+                  <Sparkles className="w-4 h-4" />
+                  AI-Powered Virtual Try-On Technology
+                </Badge>
 
-          {/* Grid pattern overlay */}
-          <div
-            className={
-              'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="20" height="20" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"%3E%3Cpath d="M 20 0 L 0 0 0 20" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23grid)" /%3E%3C/svg%3E\')] opacity-20'
-            }
-          ></div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                  Try Before You Buy
+                  <span className="text-primary block">
+                    On You. In Your Space.
+                  </span>
+                </h1>
 
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30"></div>
-        </div>
+                <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                  Experience the future of shopping with our AI-powered virtual
+                  try-on technology. See how clothes look on you and how
+                  furniture fits your space before you buy.
+                </p>
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-5xl mx-auto">
-            <Badge className="mb-8 bg-white/95 backdrop-blur-sm text-black border-0 font-black text-base px-6 py-3 shadow-2xl">
-              <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                ✨ AI-POWERED VIRTUAL TRY-ON • NO CAP! ✨
-              </span>
-            </Badge>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight tracking-tight drop-shadow-2xl">
-              TRY BEFORE YOU BUY —{" "}
-              <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-lg">
-                ON YOU. IN YOUR SPACE.
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl mx-auto font-bold drop-shadow-lg">
-              💫 Experience the future of shopping with our AI-powered virtual
-              try-on technology. See how clothes look on you and how furniture
-              fits your space before you buy.
-              <span className="text-yellow-300 font-black">
-                {" "}
-                It's giving main character energy!{" "}
-              </span>
-              🔥✨
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link to="/catalog">
-                <Button
-                  size="lg"
-                  className="text-xl px-12 py-8 font-black bg-white text-black hover:bg-yellow-300 shadow-2xl transform hover:scale-105 transition-all duration-300 border-4 border-black"
-                >
-                  🛍️ SHOP NOW
-                  <TrendingUp className="ml-3 h-6 w-6" />
-                </Button>
-              </Link>
-              <Link to="/try-on">
-                <Button
-                  size="lg"
-                  className="text-xl px-12 py-8 font-black bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-400 hover:to-purple-500 shadow-2xl transform hover:scale-105 transition-all duration-300 border-4 border-white"
-                >
-                  ✨ START TRY-ON
-                  <Sparkles className="ml-3 h-6 w-6" />
-                </Button>
-              </Link>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link to="/catalog">
+                    <Button
+                      size="lg"
+                      className="w-full sm:w-auto px-8 py-6 text-lg"
+                    >
+                      Shop Now
+                      <TrendingUp className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <Link to="/try-on">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="w-full sm:w-auto px-8 py-6 text-lg border-2"
+                    >
+                      Start Try-On
+                      <Sparkles className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                </div>
+
+                {/* Trust indicators */}
+                <div className="flex items-center gap-8 pt-8 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-success rounded-full"></div>
+                    <span>99% Accuracy</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-success rounded-full"></div>
+                    <span>Instant Results</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-success rounded-full"></div>
+                    <span>1M+ Users</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Visual Element */}
+              <div className="relative">
+                <div className="aspect-square bg-gradient-to-br from-primary/10 to-accent/20 rounded-2xl p-8 relative overflow-hidden">
+                  <div
+                    className={
+                      'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="60" height="60" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"%3E%3Cpath d="M 60 0 L 0 0 0 60" fill="none" stroke="hsl(215,84%,20%)" stroke-width="0.5" opacity="0.1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23grid)" /%3E%3C/svg%3E\')]'
+                    }
+                  ></div>
+
+                  <div className="relative z-10 h-full flex items-center justify-center">
+                    <div className="text-center space-y-6">
+                      <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto">
+                        <Sparkles className="w-12 h-12 text-primary" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-primary">
+                        AI Virtual Try-On
+                      </h3>
+                      <p className="text-muted-foreground">
+                        Revolutionary shopping experience powered by artificial
+                        intelligence
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
