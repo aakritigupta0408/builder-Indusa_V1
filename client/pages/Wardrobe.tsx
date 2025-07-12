@@ -668,6 +668,12 @@ export default function Wardrobe() {
                           <Eye className="h-3 w-3" />
                           Try On
                         </Button>
+                        <InstagramShare
+                          imageUrl={item.image}
+                          productName={item.name}
+                          designerName={item.brand}
+                          variant="icon"
+                        />
                       </div>
                     </div>
                   </CardContent>
