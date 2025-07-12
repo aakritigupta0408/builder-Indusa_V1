@@ -567,34 +567,6 @@ export default function Index() {
                 <Sparkles className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-
-            {/* Trust indicators */}
-            <div className="mt-12 grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary-foreground mb-1">
-                  99%
-                </div>
-                <div className="text-sm text-primary-foreground/80">
-                  Accuracy Rate
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary-foreground mb-1">
-                  60%
-                </div>
-                <div className="text-sm text-primary-foreground/80">
-                  Fewer Returns
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary-foreground mb-1">
-                  1M+
-                </div>
-                <div className="text-sm text-primary-foreground/80">
-                  Happy Customers
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
