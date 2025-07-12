@@ -281,14 +281,38 @@ export default function ProductPage() {
                 </div>
               )}
 
-              {/* Color & Material */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
+              {/* Color Selection */}
+              {product.availableColors && product.availableColors.length > 1 ? (
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Color</label>
+                  <div className="flex flex-wrap gap-2">
+                    {product.availableColors.map((color) => (
+                      <button
+                        key={color}
+                        onClick={() => setSelectedColor(color)}
+                        className={`px-3 py-2 rounded-lg border-2 text-sm font-medium transition-all ${
+                          selectedColor === color
+                            ? "border-primary bg-primary/10 text-primary"
+                            : "border-muted hover:border-muted-foreground"
+                        }`}
+                      >
+                        {color}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-2">
                   <label className="text-sm font-medium text-muted-foreground">
                     Color
                   </label>
                   <p className="font-medium">{product.color}</p>
                 </div>
+              )}
+
+              {/* Material */}
+              <div className="grid grid-cols-1 gap-4">
+                <div></div>
                 {product.material && (
                   <div>
                     <label className="text-sm font-medium text-muted-foreground">
