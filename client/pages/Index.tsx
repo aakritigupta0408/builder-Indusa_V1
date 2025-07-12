@@ -91,11 +91,33 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-neutral via-background to-secondary py-20 lg:py-32">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-gradient-to-r from-pink-500/20 to-purple-500/20 text-primary border-primary/30 font-bold text-sm">
-              ✨ AI-Powered Virtual Try-On • NO CAP! ✨
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Gen Z Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-400 via-purple-500 to-cyan-400">
+          {/* Animated shapes */}
+          <div className="absolute top-10 left-10 w-32 h-32 bg-yellow-300/30 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-pink-300/40 rounded-full blur-lg animate-bounce"></div>
+          <div className="absolute bottom-32 left-20 w-40 h-40 bg-cyan-300/25 rounded-full blur-2xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 right-10 w-28 h-28 bg-purple-300/35 rounded-full blur-xl animate-bounce delay-500"></div>
+          <div className="absolute top-1/2 left-1/2 w-36 h-36 bg-green-300/20 rounded-full blur-2xl animate-pulse delay-700"></div>
+
+          {/* Grid pattern overlay */}
+          <div
+            className={
+              'absolute inset-0 bg-[url(\'data:image/svg+xml,%3Csvg width="20" height="20" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"%3E%3Cpath d="M 20 0 L 0 0 0 20" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23grid)" /%3E%3C/svg%3E\')] opacity-20'
+            }
+          ></div>
+
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <div className="max-w-5xl mx-auto">
+            <Badge className="mb-8 bg-white/95 backdrop-blur-sm text-black border-0 font-black text-base px-6 py-3 shadow-2xl">
+              <span className="bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
+                ✨ AI-POWERED VIRTUAL TRY-ON • NO CAP! ✨
+              </span>
             </Badge>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-6 leading-tight tracking-tight">
               TRY BEFORE YOU BUY —{" "}
