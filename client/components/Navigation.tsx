@@ -123,19 +123,27 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary ${
+              className={`group flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-bold transition-all duration-300 ${
                 isActive(item.path)
-                  ? "text-primary border-b-2 border-primary pb-1"
-                  : "text-muted-foreground"
+                  ? "bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-cyan-400/20 text-primary border border-primary/30"
+                  : "text-muted-foreground hover:text-primary hover:bg-gradient-to-r hover:from-pink-500/10 hover:to-purple-500/10"
               }`}
             >
+              {item.badge && <span className="text-sm">{item.badge}</span>}
               {item.icon && <item.icon className="h-4 w-4" />}
-              {item.label}
+              <div className="flex flex-col">
+                <span className="leading-none">{item.label}</span>
+                {item.description && (
+                  <span className="text-[10px] text-muted-foreground/70 leading-none mt-0.5">
+                    {item.description}
+                  </span>
+                )}
+              </div>
             </Link>
           ))}
         </nav>
