@@ -38,7 +38,6 @@ import { useAuth } from "@/context/AuthContext";
 import { searchProducts } from "@/data/products";
 import { IndusaLogo } from "./IndusaLogo";
 import { CartSidebar } from "./CartSidebar";
-import { MegaMenu } from "./MegaMenu";
 
 export default function Navigation() {
   const { state } = useApp();
