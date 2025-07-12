@@ -65,14 +65,20 @@ interface UploadedPhoto {
 
 export default function AISizing() {
   const [uploadedPhotos, setUploadedPhotos] = useState<UploadedPhoto[]>([]);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [processingProgress, setProcessingProgress] = useState(0);
-  const [showResults, setShowResults] = useState(false);
   const [selectedMeasurement, setSelectedMeasurement] = useState<string | null>(
     null,
   );
   const [showTips, setShowTips] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Service hooks
+  const aiSizing = useAISizing();
+  const fileUpload = useFileUpload();
+
+  // Use service state
+  const isProcessing = aiSizing.isProcessing;
+  const processingProgress = aiSizing.progress;
+  const showResults = !!aiSizing.result;
 
   const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
