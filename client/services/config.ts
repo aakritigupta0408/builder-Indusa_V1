@@ -112,13 +112,13 @@ export interface ActiveProviders {
 // Default active providers (can be overridden via environment variables)
 export const DEFAULT_ACTIVE_PROVIDERS: ActiveProviders = {
   clothingTryOn:
-    (process.env.REACT_APP_CLOTHING_PROVIDER as ServiceProvider) ||
+    (getEnvVar("VITE_CLOTHING_PROVIDER") as ServiceProvider) ||
     ServiceProvider.MOCK_CLOTHING,
   decorVisualization:
-    (process.env.REACT_APP_DECOR_PROVIDER as ServiceProvider) ||
+    (getEnvVar("VITE_DECOR_PROVIDER") as ServiceProvider) ||
     ServiceProvider.MOCK_DECOR,
   aiSizing:
-    (process.env.REACT_APP_SIZING_PROVIDER as ServiceProvider) ||
+    (getEnvVar("VITE_SIZING_PROVIDER") as ServiceProvider) ||
     ServiceProvider.MOCK_SIZING,
 };
 
