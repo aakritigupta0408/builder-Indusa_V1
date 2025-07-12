@@ -116,7 +116,7 @@ export default function Navigation() {
             <span className="text-xl font-black bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent tracking-tight">
               INDUSA
             </span>
-            <span className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest -mt-1">
+            <span className="text-[10px] font-black bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent uppercase tracking-wider -mt-1">
               ✨ AI FASHION ✨
             </span>
           </div>
