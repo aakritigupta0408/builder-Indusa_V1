@@ -218,7 +218,10 @@ export default function Catalog() {
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <div className="flex gap-2">
                         <Button
-                          onClick={() => handleTryOn(product)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleTryOn(product);
+                          }}
                           className="bg-white text-black hover:bg-white/90"
                         >
                           {product.category === "clothing"
@@ -229,6 +232,10 @@ export default function Catalog() {
                           size="icon"
                           variant="secondary"
                           className="bg-white/90 hover:bg-white"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            actions.addToWishlist(product);
+                          }}
                         >
                           <Heart className="h-4 w-4" />
                         </Button>
