@@ -26,7 +26,7 @@ import {
   TrendingUp,
   Award,
 } from "lucide-react";
-import { designers, Designer } from "@/data/designers";
+import { designers, type Designer } from "@/data/designers";
 import { allProducts } from "@/data/products";
 import { useAppActions, Product } from "@/context/AppContext";
 
