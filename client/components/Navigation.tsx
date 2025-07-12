@@ -117,16 +117,21 @@ export default function Navigation() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3">
-          <IndusaLogo size="lg" />
-          <div className="flex flex-col">
-            <span className="text-xl font-bold text-primary tracking-tight">
-              Indusa
+      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+        {/* Logo - Enhanced Design */}
+        <Link to="/" className="flex items-center space-x-4 group">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative bg-gradient-to-br from-primary/10 to-accent/10 p-2 rounded-2xl border border-primary/20">
+              <IndusaLogo size="lg" />
+            </div>
+          </div>
+          <div className="flex flex-col justify-center">
+            <span className="text-2xl font-black bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent tracking-tight leading-none">
+              INDUSA
             </span>
-            <span className="text-xs font-medium text-muted-foreground tracking-wider -mt-0.5">
-              Made by Humans. Delivered By AI.
+            <span className="text-xs font-semibold text-primary/80 tracking-widest uppercase leading-none mt-1 bg-gradient-to-r from-primary/60 to-accent/60 bg-clip-text text-transparent">
+              Made by Humans • Delivered By AI
             </span>
           </div>
         </Link>
@@ -389,7 +394,7 @@ export default function Navigation() {
                       }}
                       className="flex items-center gap-2"
                     >
-                      <span>✨</span>
+                      <span>��</span>
                       <div>
                         <p className="font-medium">Virtual Try-On</p>
                         <p className="text-xs text-muted-foreground">
