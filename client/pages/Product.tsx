@@ -90,10 +90,13 @@ export default function ProductPage() {
   ];
 
   const handleAddToCart = () => {
+    if (!product) return;
+
     if (product.category === "clothing" && !selectedSize) {
       return; // Show error for missing size
     }
-    actions.addToCart(product);
+
+    actions.addToCart(product, quantity, selectedSize, product.color);
   };
 
   const handleToggleWishlist = () => {
