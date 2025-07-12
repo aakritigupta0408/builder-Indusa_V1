@@ -61,7 +61,7 @@ export default function Navigation() {
     {
       path: "/catalog?category=clothing",
       label: "Apparel",
-      icon: ShirtIcon,
+      icon: Shirt,
       description: "Fashion & Clothing",
     },
     {
