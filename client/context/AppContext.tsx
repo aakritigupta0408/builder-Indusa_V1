@@ -10,6 +10,7 @@ export interface Product {
   color: string;
   availableColors?: string[];
   category: "clothing" | "decor";
+  subcategory?: string;
   image: string;
   images?: { [color: string]: string };
   rating: number;
