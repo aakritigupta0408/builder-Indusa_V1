@@ -1,5 +1,10 @@
 import { useState, useRef } from "react";
 import { useApp, useAppActions, Product } from "@/context/AppContext";
+import {
+  useClothingTryOn,
+  useDecorVisualization,
+  useFileUpload,
+} from "@/hooks/useServices";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
