@@ -602,8 +602,8 @@ export default function ProductPage() {
                   {previewImage && (
                     <div className="absolute bottom-4 right-4">
                       <div className="bg-white/95 backdrop-blur-sm px-2 py-1 rounded text-xs">
-                        <span className="font-bold text-primary">
-                          TrySpace.ai
+                        <span className="font-bold bg-gradient-to-r from-pink-500 to-orange-400 bg-clip-text text-transparent">
+                          Indusa.ai
                         </span>
                       </div>
                     </div>
