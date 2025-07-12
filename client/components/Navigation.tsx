@@ -221,6 +221,118 @@ export default function Navigation() {
           </Sheet>
         </div>
       </div>
+
+      {/* Search Dialog */}
+      <CommandDialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
+        <Command shouldFilter={false}>
+          <div className="flex items-center border-b px-3">
+            <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+            <CommandInput
+              placeholder="Search for products, brands, colors..."
+              value={searchQuery}
+              onValueChange={handleSearchInputChange}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && searchQuery.trim()) {
+                  handleSearch(searchQuery);
+                }
+              }}
+            />
+            {searchQuery && (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-4 w-4 p-0 hover:bg-transparent"
+                onClick={clearSearch}
+              >
+                <X className="h-3 w-3" />
+              </Button>
+            )}
+          </div>
+          <CommandList>
+            {searchQuery && state.searchResults.length === 0 ? (
+              <CommandEmpty>No products found for "{searchQuery}"</CommandEmpty>
+            ) : (
+              <>
+                {searchQuery && state.searchResults.length > 0 && (
+                  <CommandGroup
+                    heading={`${state.searchResults.length} products found`}
+                  >
+                    {state.searchResults.slice(0, 8).map((product) => (
+                      <CommandItem
+                        key={product.id}
+                        onSelect={() => {
+                          navigate(`/product/${product.id}`);
+                          setIsSearchOpen(false);
+                          clearSearch();
+                        }}
+                        className="flex items-center gap-3 p-3"
+                      >
+                        <div className="w-12 h-12 bg-neutral rounded-md flex-shrink-0">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="w-full h-full object-cover rounded-md"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-sm truncate">
+                            {product.name}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            {product.brand} • {product.color}
+                          </p>
+                          <p className="text-sm font-semibold text-primary">
+                            ${product.price}
+                          </p>
+                        </div>
+                        <Badge variant="secondary" className="capitalize">
+                          {product.category}
+                        </Badge>
+                      </CommandItem>
+                    ))}
+                    {state.searchResults.length > 8 && (
+                      <CommandItem
+                        onSelect={() => handleSearch(searchQuery)}
+                        className="text-center p-3 text-primary font-medium"
+                      >
+                        See all {state.searchResults.length} results →
+                      </CommandItem>
+                    )}
+                  </CommandGroup>
+                )}
+                {!searchQuery && (
+                  <CommandGroup heading="Quick Actions">
+                    <CommandItem
+                      onSelect={() => {
+                        navigate("/catalog?category=clothing");
+                        setIsSearchOpen(false);
+                      }}
+                    >
+                      Browse Clothing
+                    </CommandItem>
+                    <CommandItem
+                      onSelect={() => {
+                        navigate("/catalog?category=decor");
+                        setIsSearchOpen(false);
+                      }}
+                    >
+                      Browse Home Decor
+                    </CommandItem>
+                    <CommandItem
+                      onSelect={() => {
+                        navigate("/try-on");
+                        setIsSearchOpen(false);
+                      }}
+                    >
+                      Try Virtual Try-On
+                    </CommandItem>
+                  </CommandGroup>
+                )}
+              </>
+            )}
+          </CommandList>
+        </Command>
+      </CommandDialog>
     </header>
   );
 }
