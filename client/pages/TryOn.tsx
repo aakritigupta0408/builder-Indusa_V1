@@ -35,6 +35,7 @@ import {
   Home as HomeIcon,
   Shirt,
 } from "lucide-react";
+import { IndusaLogo, IndusaIcon } from "@/components/IndusaLogo";
 
 // Mock products for try-on
 const mockClothingProducts: Product[] = [
