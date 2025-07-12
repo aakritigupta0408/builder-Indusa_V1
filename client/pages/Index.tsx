@@ -202,6 +202,7 @@ export default function Index() {
                       <Card
                         key={product.id}
                         className="group overflow-hidden cursor-pointer hover:shadow-lg transition-all"
+                        onClick={() => navigate(`/product/${product.id}`)}
                       >
                         <div className="aspect-square bg-neutral">
                           <img
