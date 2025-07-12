@@ -111,8 +111,11 @@ export default function Index() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/catalog">
-                <Button size="lg" className="text-lg px-8 py-6">
-                  Shop Now
+                <Button
+                  size="lg"
+                  className="text-lg px-8 py-6 font-black bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 shadow-lg"
+                >
+                  🛍️ SHOP NOW
                   <TrendingUp className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -120,9 +123,9 @@ export default function Index() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-lg px-8 py-6"
+                  className="text-lg px-8 py-6 font-black border-2 border-primary hover:bg-gradient-to-r hover:from-pink-500/10 hover:to-purple-500/10"
                 >
-                  Start Try-On
+                  ✨ START TRY-ON
                   <Sparkles className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
