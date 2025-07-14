@@ -57,7 +57,7 @@ A comprehensive multi-platform shopping ecosystem featuring AI-powered virtual t
 │   │   ├── services/        # API services
 │   │   └── data/            # Static data and configurations
 │   ├── server/              # Backend Express.js server
-│   ├── public/              # Static assets
+│   ├��─ public/              # Static assets
 │   ├── src/
 │   │   ├── config/          # Web-specific configuration
 │   │   ├── types/           # Web-specific TypeScript types
@@ -86,54 +86,239 @@ A comprehensive multi-platform shopping ecosystem featuring AI-powered virtual t
   - iOS 15+ device or simulator
   - Swift 5.9+
 
-### Web Application Setup
+## 💻 Local Development Setup
 
-1. **Navigate to webapp directory:**
+### Quick Start (Web Application)
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone <repository-url>
+   cd indusa-platform
+   ```
+
+2. **Navigate to webapp directory:**
 
    ```bash
    cd webapp
    ```
 
-2. **Install dependencies:**
+3. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-3. **Start development server:**
+4. **Start development server:**
 
    ```bash
    npm run dev
    ```
 
-   The app will be available at `http://localhost:8080`
+5. **Open in browser:**
 
-4. **Available Scripts:**
+   Navigate to `http://localhost:8080` to see the web application running.
+
+### Full Local Development Setup
+
+#### Step 1: Environment Setup
+
+**For Web Development:**
+
+```bash
+# Verify Node.js version (should be 18+)
+node --version
+
+# Verify npm version
+npm --version
+
+# Optional: Use yarn instead of npm
+yarn --version
+```
+
+**For iOS Development (macOS only):**
+
+```bash
+# Verify Xcode installation
+xcodebuild -version
+
+# Verify Swift version
+swift --version
+```
+
+#### Step 2: Project Setup
+
+1. **Clone and navigate to project:**
+
    ```bash
-   npm run build        # Build for production
-   npm run test         # Run tests
-   npm run typecheck    # TypeScript type checking
-   npm run format.fix   # Format code with Prettier
+   git clone <repository-url>
+   cd indusa-platform
    ```
 
-### iOS Application Setup
-
-1. **Open iOS project in Xcode:**
+2. **Install web dependencies:**
 
    ```bash
-   cd ios
-   open Package.swift
+   cd webapp
+   npm install
+   cd ..
    ```
 
-2. **Or use Xcode CLI:**
+#### Step 3: Running the Applications
+
+**Web Application:**
+
+```bash
+# From project root
+cd webapp
+
+# Start development server
+npm run dev
+
+# The app will be available at http://localhost:8080
+# Hot reload is enabled - changes will reflect automatically
+```
+
+**iOS Application:**
+
+```bash
+# From project root
+cd ios
+
+# Open in Xcode
+open Package.swift
+
+# Or use Xcode command line
+xed .
+```
+
+Then in Xcode:
+
+- Select a simulator or connected device
+- Press Cmd+R to build and run
+- The app will launch in the iOS Simulator or on your device
+
+### Development Scripts
+
+**Web Application Scripts:**
+
+```bash
+cd webapp
+
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run test         # Run unit tests
+npm run typecheck    # TypeScript type checking
+npm run format.fix   # Format code with Prettier
+npm run start        # Start production server (after build)
+```
+
+**Useful Development Commands:**
+
+```bash
+# Check for TypeScript errors
+npm run typecheck
+
+# Format all code
+npm run format.fix
+
+# Run tests in watch mode
+npm run test -- --watch
+
+# Build and serve production version locally
+npm run build && npm run start
+```
+
+### Troubleshooting Local Setup
+
+#### Common Web Issues
+
+**Port 8080 already in use:**
+
+```bash
+# Kill process on port 8080
+lsof -ti:8080 | xargs kill -9
+
+# Or use a different port
+npm run dev -- --port 3000
+```
+
+**Node modules issues:**
+
+```bash
+# Clear npm cache and reinstall
+rm -rf node_modules package-lock.json
+npm cache clean --force
+npm install
+```
+
+**TypeScript errors:**
+
+```bash
+# Restart TypeScript server in VS Code
+# Cmd+Shift+P -> "TypeScript: Restart TS Server"
+
+# Or check types manually
+npm run typecheck
+```
+
+#### Common iOS Issues
+
+**Xcode build errors:**
+
+- Clean build folder: Product → Clean Build Folder (Cmd+Shift+K)
+- Reset simulator: Device → Erase All Content and Settings
+- Update Xcode to latest version
+
+**Simulator issues:**
+
+- Restart simulator: Device → Restart
+- Reset all simulators: Device → Erase All Content and Settings
+
+### Development Workflow
+
+1. **Start the web app:**
 
    ```bash
-   xed ios/
+   cd webapp && npm run dev
    ```
 
-3. **Build and run:**
-   - Select target device/simulator
-   - Press Cmd+R to build and run
+2. **Open in browser:**
+   - Navigate to `http://localhost:8080`
+   - Open browser developer tools for debugging
+
+3. **For iOS development:**
+   - Open `ios/Package.swift` in Xcode
+   - Select iPhone simulator
+   - Build and run (Cmd+R)
+
+4. **Making changes:**
+   - Web: Changes auto-reload in browser
+   - iOS: Rebuild in Xcode to see changes
+
+### Environment Variables (Optional)
+
+Create a `.env` file in the webapp directory for local configuration:
+
+```bash
+# webapp/.env
+VITE_API_URL=http://localhost:3001
+VITE_ENVIRONMENT=development
+```
+
+### IDE Recommendations
+
+**For Web Development:**
+
+- VS Code with extensions:
+  - TypeScript and JavaScript Language Features
+  - Tailwind CSS IntelliSense
+  - Prettier - Code formatter
+  - ESLint
+
+**For iOS Development:**
+
+- Xcode (required for iOS development)
+- VS Code for shared resources editing
 
 ## 🏗️ Architecture
 
